@@ -1,0 +1,59 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  font-family: "Poppins";
+  color: #254e70;
+}
+
+/* BODY LAYOUT GRID */
+.bodyLayout {
+  display: grid;
+  grid-template-columns: 260px 100%;
+  grid-template-rows: 100% 100%;
+}
+
+/* HEADER STYLING*/
+section header {
+  background-color: #f7f7ff;
+  padding: 50px;
+  height: 100%;
+}
+
+#headerImg {
+  height: 100%;
+  display: flex;
+  align-items: baseline;
+}
+
+#headerImg img {
+  width: 148px;
+}
+
+header #nav .navLink img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+header {
+  display: grid;
+  grid-template-rows: 150px 100%;
+}
+
+#nav .navLink {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+#nav .navLink a {
+  text-decoration: none;
+}
+
+#nav .navLink a:hover {
+  color: #4ecdc4;
+}
