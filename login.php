@@ -36,7 +36,6 @@
     </div>
   </div>
 
-  <!-- Circles in background -->
   <div class="login-circles">
     <div class="circle circle1"></div>
     <div class="circle circle2"></div>
