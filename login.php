@@ -10,7 +10,7 @@
 
   <div class="login-container">
     <div class="login-logo">
-      <img src="styles/images/logo.png" alt="Voedselbank Maaskantje Logo">
+      <img src="./styles/images/logo.png" alt="Voedselbank Maaskantje Logo">
     </div>
 
     <div class="login-box">

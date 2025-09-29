@@ -58,7 +58,32 @@ $pdo = dbConnect();
         <div class="dashboard">
             <div class="card">
                 <h3><a href="#">Leveringen</a></h3>
-                <div class="item"><a href="#">Leverancier naam - 10/09/2025</a></div>
+
+                <?php
+                $stmt = $pdo->query('SELECT productnaam FROM product');
+                $producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ($producten as $product){
+                ?>
+
+                <a href="#">
+                    <div class="item">
+                        <div>
+                        <p id="productNaam">
+                            <?= htmlspecialchars($product['productnaam']) ?>
+                        </p>
+                        <p id="ean"></p>
+                        </div>
+
+                        <div>
+                        <p id="aantal"></p>
+                        </div>
+                    </div>
+                </a>
+                <?php
+                }
+                ?>
+                
                 <div class="item"><a href="#">Leverancier naam - 11/09/2025</a></div>
                 <div class="item"><a href="#">Leverancier naam - 12/09/2025</a></div>
                 <a href="#" class="button-link">Beheer leveranciers</a>
@@ -66,9 +91,36 @@ $pdo = dbConnect();
 
             <div class="card">
                 <h3><a href="#">Voorraad</a></h3>
-                <div class="item"><a href="#">Product naam &lt;123456&gt;</a></div>
-                <div class="item"><a href="#">Product naam &lt;123456&gt;</a></div>
-                <div class="item"><a href="#">Product naam &lt;123456&gt;</a></div>
+                
+            <!-- Haalt gegevens uit de database op -->
+                <?php
+                $stmt = $pdo->query('SELECT productnaam, ean, aantal FROM product');
+                $producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ($producten as $product){
+                ?>
+
+                <a href="#">
+                    <div class="item">
+                        <div class="item-links">
+                        <p id="productNaam">
+                            <?= htmlspecialchars($product['productnaam']) ?>
+                        </p>
+                        <p id="ean">
+                            <?= htmlspecialchars($product['ean']) ?>
+                        </p>
+                        </div>
+
+                        <div>
+                        <p id="aantal">
+                            <?= htmlspecialchars($product['aantal']) ?>
+                        </p>
+                        </div>
+                    </div>
+                </a>
+                <?php
+                }
+                ?>
                 <a href="#" class="button-link">Beheer voorraad</a>
             </div>
 
