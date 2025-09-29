@@ -1,6 +1,3 @@
-<?php
-// login.php
-?>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -12,12 +9,10 @@
 <body class="login-page">
 
   <div class="login-container">
-    <!-- Logo -->
     <div class="login-logo">
       <img src="styles/images/logo.png" alt="Voedselbank Maaskantje Logo">
     </div>
 
-    <!-- Login Box -->
     <div class="login-box">
       <h2>Login</h2>
       <form action="index.php" method="post">
@@ -36,7 +31,6 @@
     </div>
   </div>
 
-  <!-- Circles in background -->
   <div class="login-circles">
     <div class="circle circle1"></div>
     <div class="circle circle2"></div>
