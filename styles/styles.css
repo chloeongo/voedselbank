@@ -1,3 +1,8 @@
+body {
+  overflow-x: hidden;
+  height: 100%;
+}
+
 h1,
 h2,
 h3,
@@ -21,7 +26,9 @@ a {
 section header {
   background-color: #f7f7ff;
   padding: 50px;
+  min-height: 100vh;
   height: 100%;
+  z-index: 1;
 }
 
 #headerImg {
@@ -59,16 +66,24 @@ header {
 }
 
 /* HOME STYLING */
+main {
+  padding-left: 60px;
+  height: 100%;
+}
+
 h2 {
   font-size: 24px;
   margin-bottom: 30px;
   color: #254e70;
+  text-align: left;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .dashboard {
   display: flex;
-  justify-content: center;
-  gap: 30px;
+  justify-content: left;
+  gap: 75px;
 }
 
 .card {
