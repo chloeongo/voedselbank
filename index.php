@@ -126,9 +126,27 @@ $pdo = dbConnect();
 
             <div class="card">
                 <h3><a href="#">Klanten</a></h3>
-                <div class="item"><a href="#">Familie naam</a></div>
-                <div class="item"><a href="#">Familie naam</a></div>
-                <div class="item"><a href="#">Familie naam</a></div>
+           
+                <!-- Haalt gegevens uit de database op -->
+                <?php
+                $stmt = $pdo->query('SELECT naam FROM klant');
+                $families = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ($families as $familie){
+                ?>
+
+                <a href="#">
+                    <div class="item">
+                        <div class="item-links">
+                        <p id="familieNaam">
+                            <?= htmlspecialchars($familie['naam']) ?>
+                        </p>
+                        </div>
+                    </div>
+                </a>
+                <?php
+                }
+                ?>
                 <a href="#" class="button-link">Beheer klanten</a>
             </div>
         </div>
