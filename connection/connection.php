@@ -1,15 +1,13 @@
 <?php
-$pdo = dbConnect();
-
 function dbConnect()
 {
     $servername = "127.0.0.1:3307";
-    $username = "root";
+    $username = "root@localhost";
     $password = "";
     $dbname = "voedselbank";
 
     try {
-        $dsn = "mysql:host=$servername;dbname=$dbname;port=3307";
+        $dsn = "MariaDB:host=$servername;dbname=$dbname;port=3307";
         $pdo = new PDO($dsn, $username, $password);
 
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -19,5 +17,12 @@ function dbConnect()
         echo "Connection failed: " . $e->getMessage() . "\n";
         return null;
     }
+}
+
+$pdo = dbConnect();
+
+
+if ($pdo) {
+    echo "Verbinding met de database is gelukt";
 }
 ?>
