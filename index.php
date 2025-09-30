@@ -58,34 +58,35 @@ $pdo = dbConnect();
         <div class="dashboard">
             <div class="card">
                 <h3><a href="#">Leveringen</a></h3>
-
+            <!-- Haalt gegevens uit de database op -->
                 <?php
-                $stmt = $pdo->query('SELECT productnaam FROM product');
-                $producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $stmt = $pdo->query('SELECT 
+                                        levering.idleverancier, 
+                                        levering.leveringDatum, 
+                                        leverancier.bedrijfsnaam
+                                    FROM levering
+                                    INNER JOIN leverancier 
+                                    ON levering.idleverancier = leverancier.idleverancier');
+                $leveringen = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                foreach ($producten as $product){
+                foreach ($leveringen as $levering){
                 ?>
 
                 <a href="#">
                     <div class="item">
-                        <div>
+                        <div class="item-links">
                         <p id="productNaam">
-                            <?= htmlspecialchars($product['productnaam']) ?>
+                            <?= htmlspecialchars($levering['bedrijfsnaam']) ?>
                         </p>
-                        <p id="ean"></p>
-                        </div>
-
-                        <div>
-                        <p id="aantal"></p>
+                        <p id="ean">
+                            <?= htmlspecialchars($levering['leveringDatum']) ?>
+                        </p>
                         </div>
                     </div>
                 </a>
                 <?php
                 }
                 ?>
-                
-                <div class="item"><a href="#">Leverancier naam - 11/09/2025</a></div>
-                <div class="item"><a href="#">Leverancier naam - 12/09/2025</a></div>
                 <a href="#" class="button-link">Beheer leveranciers</a>
             </div>
 
