@@ -35,7 +35,7 @@ $pdo = dbConnect();
             </div>
             <div class="navLink">
                 <img src="./styles/images/icon-voorraad.png">
-                <a href="index.php">Voorraad</a>
+                <a href="/voedselbank/views/voorraad.php">Voorraad</a>
             </div>
             <div class="navLink">
                 <img src="./styles/images/icon-pakket.png">
@@ -87,7 +87,7 @@ $pdo = dbConnect();
                 <?php
                 }
                 ?>
-                <a href="#" class="button-link">Beheer leveranciers</a>
+                <button class="blauwBtn">Beheer leveranciers</button>
             </div>
 
             <div class="card">
@@ -122,7 +122,7 @@ $pdo = dbConnect();
                 <?php
                 }
                 ?>
-                <a href="#" class="button-link">Beheer voorraad</a>
+                <button class="blauwBtn">Beheer voorraad</button>
             </div>
 
             <div class="card">
@@ -148,7 +148,7 @@ $pdo = dbConnect();
                 <?php
                 }
                 ?>
-                <a href="#" class="button-link">Beheer klanten</a>
+                <button class="blauwBtn">Beheer klanten</button>
             </div>
         </div>
 

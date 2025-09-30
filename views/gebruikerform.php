@@ -35,7 +35,7 @@ $pdo = dbConnect();
             </div>
             <div class="navLink">
                 <img src="../styles/images/icon-voorraad.png">
-                <a href="index.php">Voorraad</a>
+                <a href="voorraad.php">Voorraad</a>
             </div>
             <div class="navLink">
                 <img src="../styles/images/icon-pakket.png">

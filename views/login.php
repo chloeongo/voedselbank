@@ -14,22 +14,21 @@
       <img src="../styles/images/logo.png" alt="Voedselbank Maaskantje Logo">
     </div>
 
-    <div class="login-box">
-      <h2>Login</h2>
+    <div class="form" id="loginForm">
+      <div id="loginHeading">
+      <h2>Log in</h2>
+      </div>
       <form action="../response/login.php" method="post">
-        <div class="login-input">
-          <label for="username">Gebruikersnaam</label>
-          <input type="text" id="username" name="username" required>
-        </div>
+          <label for="username">Gebruikersnaam</label><br>
+          <input type="text" id="username" name="username" required><br>
 
-        <div class="login-input">
-          <label for="password">Wachtwoord</label>
-          <input type="password" id="password" name="password" required>
-        </div>
-
-        <button type="submit" class="login-btn">Login</button>
+          <label for="password">Wachtwoord</label><br>
+          <input type="password" id="password" name="password" required><br>
+          
+          <input type="submit" value="Submit" class="blauwBtn" id="submitBtn">
       </form>
     </div>
+
   </div>
 
   <div class="login-circles">
