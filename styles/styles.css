@@ -2,6 +2,10 @@
 /* ALGEMENE STYLING (index)  */
 /* ========================= */
 
+main {
+  padding-left: 40px;
+}
+
 h1,
 h2,
 h3,
@@ -86,13 +90,11 @@ header {
 }
 
 /* HOME STYLING */
-h2 {
+#welkomH2 {
   font-size: 24px;
   margin-bottom: 30px;
   color: #254e70;
   text-align: left;
-  margin-left: 0;
-  padding-left: 20px;
 }
 
 .dashboard {
@@ -263,10 +265,6 @@ h2 {
 .bewerkBtn img {
   width: 11px;
   height: 11px;
-}
-
-.gebruikersTab {
-  margin-left: 40px;
 }
 
 .beheerRechts {

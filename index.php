@@ -53,7 +53,7 @@ $pdo = dbConnect();
       </header>
      
       <main>
-            <h2>Welkom &lt;Gebruiker&gt;</h2>
+            <h2 id="welkomH2">Welkom &lt;Gebruiker&gt;</h2>
 
         <div class="dashboard">
             <div class="card">
