@@ -259,6 +259,11 @@ h2 {
   justify-content: center;
   padding-top: 35px;
   padding-bottom: 35px;
+  transition: background-color 0.3s;
+}
+
+.bodyLayout .mainContent .beheerRechts .addBtn:hover {
+  background-color: #e7e7fd;
 }
 
 .bodyLayout .mainContent .gebruikersTab .gebruikersRij {
@@ -501,4 +506,45 @@ h2 {
   .sidebar {
     display: none;
   }
+}
+
+/* FORM */
+
+.gegevensForm {
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  padding: 10px 30px 30px 30px;
+  background-color: #f7f7ff;
+  width: 30%;
+  border-radius: 15px;
+}
+
+.form input {
+  border: 1px solid#f09d51;
+  border-radius: 15px;
+  width: 100%;
+  min-height: 30px;
+  font-family: "Poppins";
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.form label {
+  font-family: "Poppins";
+  color: #254e70;
+}
+
+#submitBtn {
+  border: none;
+  font-size: 16px;
+}
+
+#submitBtn:hover {
+  cursor: pointer;
 }
