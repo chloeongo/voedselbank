@@ -47,7 +47,7 @@ $pdo = dbConnect();
             </div>
             <div class="navLink">
                 <img src="./styles/images/icon-beheer.png">
-                <a href="index.php">Beheren</a>
+                <a href="/voedselbank/views/beheer.php">Beheren</a>
             </div>
         </div>
       </header>
@@ -72,7 +72,7 @@ $pdo = dbConnect();
                 foreach ($leveringen as $levering){
                 ?>
 
-                <a href="#">
+                <a href="#" class="content">
                     <div class="item">
                         <div class="item-links">
                         <p id="productNaam">
@@ -101,19 +101,19 @@ $pdo = dbConnect();
                 foreach ($producten as $product){
                 ?>
 
-                <a href="#">
+                <a href="#" class="content">
                     <div class="item">
                         <div class="item-links">
                         <p id="productNaam">
                             <?= htmlspecialchars($product['productnaam']) ?>
                         </p>
-                        <p id="ean">
+                        <p class="smallertext">
                             <?= htmlspecialchars($product['ean']) ?>
                         </p>
                         </div>
 
                         <div>
-                        <p id="aantal">
+                        <p >
                             <?= htmlspecialchars($product['aantal']) ?>
                         </p>
                         </div>
@@ -136,7 +136,7 @@ $pdo = dbConnect();
                 foreach ($families as $familie){
                 ?>
 
-                <a href="#">
+                <a href="#" class="content">
                     <div class="item">
                         <div class="item-links">
                         <p id="familieNaam">

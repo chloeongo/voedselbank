@@ -14,6 +14,24 @@ a {
   color: #254e70;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
+.blauwBtn {
+  background-color: #4ecdc4;
+  font-family: "Poppins";
+  color: #ffffff;
+  padding: 12px 30px 12px 30px;
+  border-radius: 12px;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.blauwBtn:hover {
+  background-color: #27ada4;
+}
+
 /* BODY LAYOUT GRID */
 .bodyLayout section {
   display: grid;
@@ -101,7 +119,7 @@ h2 {
   color: #254e70;
 }
 
-.item {
+.content .item {
   border: 1px solid orangered;
   border-radius: 8px;
   padding: 10px;
@@ -115,29 +133,17 @@ h2 {
   background: #fdf2f8;
 }
 
-.item a {
+.content .item div p {
   text-decoration: none;
   color: #254e70;
   display: block;
 }
 
-.button-link {
-  display: block;
-  margin-top: 15px;
-  padding: 10px;
-  text-align: center;
-  border-radius: 8px;
-  background: #22d3ee;
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background 0.3s;
+.smallertext {
+  font-size: 14px;
 }
 
-.button-link:hover {
-  background: #0ea5e9;
-}
-
+.content .item {
 /* ========================= */
 /* LOGIN PAGINA STYLING      */
 /* ========================= */
@@ -154,6 +160,7 @@ h2 {
   font-family: "Poppins", sans-serif;
 }
 
+.content .item .item-links {
 .login-container {
   display: flex;
   flex-direction: column;
@@ -185,6 +192,9 @@ h2 {
   text-align: left;
 }
 
+.button-link {
+  display: block;
+  margin-top: 15px;
 .login-input label {
   display: block;
   font-size: 14px;
@@ -215,6 +225,85 @@ h2 {
 
 .login-btn:hover {
   background: #0ea5e9;
+}
+
+/* BEHEER PAGINA */
+
+.bodyLayout .mainContent .gebruikersTab {
+  background-color: #f7f7ff;
+  padding: 20px;
+  display: grid;
+  grid-template-rows: 100px 100%;
+  border-radius: 15px;
+}
+
+.bodyLayout .mainContent .beheerRechts .beheerOverzicht,
+.bodyLayout .mainContent .beheerRechts .addBtn {
+  background-color: #f7f7ff;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.bodyLayout .mainContent .beheerRechts .beheerOverzicht {
+  margin-bottom: 30px;
+}
+
+.bodyLayout .mainContent .beheerRechts .addBtn a {
+  font-size: 20px;
+  font-weight: 500;
+  color: #f09d51;
+}
+
+.bodyLayout .mainContent .beheerRechts .addBtn {
+  display: flex;
+  justify-content: center;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.bodyLayout .mainContent .gebruikersTab .gebruikersRij {
+  margin-top: 20px;
+}
+
+.bodyLayout .mainContent .gebruikersTab .contentBoven {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.bodyLayout .mainContent .gebruikersTab .contentBoven .searchbar input {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  min-height: 30px;
+  width: 100%;
+  font-family: "Poppins";
+}
+
+.bodyLayout .mainContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.bewerkBtn button {
+  font-family: "Poppins";
+  color: #254e70;
+  background: none;
+  border: none;
+  padding: 0px;
+}
+
+.bewerkBtn img {
+  width: 11px;
+  height: 11px;
+}
+
+.gebruikersTab {
+  margin-left: 40px;
+}
+
+.beheerRechts {
+  margin-right: 40px;
 }
 
 .login-circles {
