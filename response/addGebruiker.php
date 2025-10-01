@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             ]);
 
-            header("Location: ../index.php");
+            header("Location: ../views/succes.php");
             exit();
         } catch (PDOException $e) {
             if ($e->getCode() == 23000) { //error 23000 duplicate entry

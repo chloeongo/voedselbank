@@ -508,3 +508,22 @@ header {
 #submitBtn:hover {
   cursor: pointer;
 }
+
+/* FORM SUCCES */
+.succes .succesMain {
+  text-align: center;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.succes {
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#homeBtn {
+  height: 30px;
+}
