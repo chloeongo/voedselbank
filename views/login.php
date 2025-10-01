@@ -25,7 +25,7 @@
           <label for="password">Wachtwoord</label><br>
           <input type="password" id="password" name="password" required><br>
           
-          <input type="submit" value="Submit" class="blauwBtn" id="submitBtn">
+          <input type="submit" value="Log in" class="blauwBtn" id="submitBtn">
       </form>
     </div>
 

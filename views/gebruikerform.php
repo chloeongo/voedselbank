@@ -56,7 +56,7 @@ $pdo = dbConnect();
         <div class="gegevensForm">
             <div class="form">
                 <h3>Voeg een account toe</h3>
-            <form action="/#">
+            <form action="../response/addGebruiker.php" method="post">
                 <label for="gebruikersnaam">Gebruikersnaam</label><br>
                 <input type="text" id="gebruikersnaam" name="gebruikersnaam"><br>
                 <label for="wachtwoord">Wachtwoord</label><br>
