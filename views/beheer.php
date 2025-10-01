@@ -59,10 +59,6 @@ $pdo = dbConnect();
                 <div class="contentBoven">
                     <h3>Gebruikers</h3>
 
-
-                    <?php
-                    ?>
-
                     <div class="searchbar">
                         <form>
                         <input type="text" id="searchbar" name="searchbar">
@@ -74,13 +70,13 @@ $pdo = dbConnect();
                 <div class="gebruikersRij">
                 <!-- Haalt gegevens uit de database op -->
                 <?php
-                $stmt = $pdo->query('SELECT gebruikersnaam, rol FROM gebruiker');
+                $stmt = $pdo->query('SELECT gebruikersnaam, rol, idgebruiker FROM gebruiker');
                 $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 foreach ($gebruikers as $gebruiker){
                 ?>
 
-                <a href="#" class="content">
+                <a class="content" href="bewerkGebruiker.php?id=<?=$gebruiker['idgebruiker'] ?>">
                     <div class="item">
                         <div class="item-links">
                         <p>

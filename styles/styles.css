@@ -554,3 +554,11 @@ header {
 #homeBtn {
   height: 30px;
 }
+
+/* BEWERK GEBRUIKERS */
+.infoLine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  line-height: 0.7;
+}
