@@ -226,8 +226,23 @@ header {
   transition: background-color 0.3s;
 }
 
-.bodyLayout .mainContent .beheerRechts .addBtn:hover {
+.bodyLayout .mainContent .beheerRechts .addBtn:hover,
+.bodyLayout
+  .mainContent
+  .gebruikersTab
+  .contentBoven
+  .searchbar
+  .searchBtn:hover {
   background-color: #e7e7fd;
+}
+
+.bodyLayout
+  .mainContent
+  .gebruikersTab
+  .contentBoven
+  .searchbar
+  .searchBtn:hover {
+  cursor: pointer;
 }
 
 .bodyLayout .mainContent .gebruikersTab .gebruikersRij {
@@ -246,6 +261,18 @@ header {
   min-height: 30px;
   width: 100%;
   font-family: "Poppins";
+}
+
+.bodyLayout .mainContent .gebruikersTab .contentBoven .searchbar .searchBtn {
+  background-color: #d4d4f5;
+  color: #254e70;
+  border-radius: none;
+  transition: background-color 0.3s;
+}
+
+.bodyLayout .mainContent .gebruikersTab .contentBoven .searchbar form {
+  display: grid;
+  grid-template-columns: 93% 7%;
 }
 
 .bodyLayout .mainContent {

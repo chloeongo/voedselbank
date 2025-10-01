@@ -59,8 +59,15 @@ $pdo = dbConnect();
                 <div class="contentBoven">
                     <h3>Gebruikers</h3>
 
+
+                    <?php
+                    ?>
+
                     <div class="searchbar">
+                        <form>
                         <input type="text" id="searchbar" name="searchbar">
+                    <input type="submit" value="🔍" class="searchBtn">
+                        </form>
                     </div>
                 </div>
 
