@@ -19,7 +19,6 @@ body {
   grid-template-columns: 260px 1fr;
 }
 
-/* Sidebar */
 section header {
   background: #f7f7ff;
   padding: 50px;
@@ -45,7 +44,6 @@ section header {
   color: #22d3ee;
 }
 
-/* Hoofdcontent */
 .bewerken-content {
   background: #ffffff;
   padding: 40px;
@@ -54,7 +52,6 @@ section header {
   align-items: center;
 }
 
-/* Terug-knop */
 .btn-terug {
   background: #4ecdc4;
   color: #fff;
@@ -69,7 +66,6 @@ section header {
   background: #27ada4;
 }
 
-/* Card */
 .bewerken-card {
   background: #f7f7ff;
   padding: 30px;
@@ -85,7 +81,6 @@ section header {
   font-weight: 600;
 }
 
-/* Rijen in card */
 .bewerken-details {
   display: flex;
   flex-direction: column;
