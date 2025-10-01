@@ -10,7 +10,6 @@
 </head>
 <body class="bodyLayout">
   <section>
-    <!-- Sidebar / Header -->
     <header>
       <div id="headerImg">
           <img src="./styles/images/logo.png" alt="logo">
@@ -36,7 +35,6 @@
       </div>
     </header>
 
-    <!-- Hoofdcontent -->
     <main class="bewerken-content">
       <a href="voorraad.php" class="btn-terug">Ga terug</a>
 
