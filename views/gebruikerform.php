@@ -63,7 +63,7 @@ $pdo = dbConnect();
                 <input type="password" id="wachtwoord" name="wachtwoord"><br>
                 <label for="rol">Rol</label><br>
                 <input type="text" id="rol" name="rol"><br><br>
-            <input type="submit" value="Submit" class="blauwBtn" id="submitBtn">
+            <input type="submit" value="Voeg toe" class="blauwBtn" id="submitBtn">
             </form>
             </div>
         </div>
