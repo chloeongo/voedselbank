@@ -1,6 +1,5 @@
 <?php
-include '../connection/connection.php';
-$pdo = dbConnect();
+include '../response/bewerkGebruiker.php';
 ?>
 
 <!DOCTYPE html>
@@ -55,15 +54,23 @@ $pdo = dbConnect();
       <main>
         <div class="gegevensForm">
             <div class="form">
-                <h3>Bewerk gebruikersnaam</h3>
+                <h3>Bewerk <?= htmlspecialchars($gebruiker['gebruikersnaam']) ?></h3>
                 <div class="contentInfo">
                     <div class="infoLine">
-                       <p style="font-weight: 600;">Gebruikersnaam:</p>
-                       <p>gebruikersnaam</p> 
+                        <div class="infoLinks">
+                            <p style="font-weight: 600;">Gebruikersnaam:</p>
+                            <p><?= htmlspecialchars($gebruiker['gebruikersnaam']) ?></p> 
+                        </div>
                     </div>
                     <div class="infoLine">
-                       <p style="font-weight: 600;">Rol:</p>
-                       <p>rol</p> 
+                        <div class="infoLinks">
+                            <p style="font-weight: 600;">Rol:</p>
+                        <form method="POST">
+                            <input id="bewerkInput" type="text" name="rol" value="<?= htmlspecialchars($gebruiker['rol']) ?>">                        </div>
+                        <div class="bewerkBtn">
+                            <button type="submit">Opslaan</button>
+                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
