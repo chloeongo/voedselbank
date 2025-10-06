@@ -10,8 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $stmt->execute([
                 'gebruikersnaam' => $_POST['gebruikersnaam'],
-                'wachtwoord' => password_hash($_POST['wachtwoord'], PASSWORD_BCRYPT),
-                'rol' => $_POST['rol'],
+                'wachtwoord' => password_hash($_POST['wachtwoord'], PASSWORD_DEFAULT),                'rol' => $_POST['rol'],
 
             ]);
 

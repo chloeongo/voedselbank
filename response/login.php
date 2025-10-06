@@ -5,16 +5,14 @@ $pdo = dbConnect();
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!empty($_POST['username']) && !empty($_POST['password'])) {
+    if (!empty($_POST['gebruikersnaam']) && !empty($_POST['wachtwoord'])) {
 
         $stmt = $pdo->prepare('SELECT * FROM gebruiker WHERE gebruikersnaam = :gebruikersnaam');
-        $stmt->execute(['gebruikersnaam' => $_POST['username']]);
+        $stmt->execute(['gebruikersnaam' => $_POST['gebruikersnaam']]);
         
         $gebruiker = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        //DEZE MOET NOG AANGEPAST WORDEN. DIT IS VOOR TESTEN.
-        //if($gebruiker && password_verify($_POST['password'], $gebruiker['wachtwoord'])) 
-        if ($gebruiker && $_POST['password'] === $gebruiker['wachtwoord']) {
+        if($gebruiker && password_verify($_POST['wachtwoord'], $gebruiker['wachtwoord'])) {
             $_SESSION['idgebruiker'] = $gebruiker['idgebruiker'];
             $_SESSION['gebruikersnaam'] = $gebruiker['gebruikersnaam'];
 
