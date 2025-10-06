@@ -57,8 +57,14 @@ $pdo = dbConnect();
         <div class="mainContent">
             <div class="gebruikersTab">
                 <div class="contentBoven">
-                    <h3>Gebruikers</h3>
-
+                    <div class="heading">
+                        <h3>Gebruikers</h3>
+                            <a href="gebruikerform.php">
+                                <button class="blauwBtn">
+                                + Voeg nieuwe gebruikers toe
+                                </button>
+                            </a>
+                    </div>
                     <div class="searchbar">
                         <form>
                         <input type="text" id="searchbar" name="searchbar">
@@ -111,9 +117,6 @@ $pdo = dbConnect();
                         </div>
                     </div>
 
-                </div>
-                <div class="addBtn">
-                    <a href="gebruikerform.php">Voeg nieuwe gebruikers toe</a>
                 </div>
             </div>
         </div>

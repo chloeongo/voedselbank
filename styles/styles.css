@@ -201,8 +201,7 @@ header {
   border-radius: 15px;
 }
 
-.bodyLayout .mainContent .beheerRechts .beheerOverzicht,
-.bodyLayout .mainContent .beheerRechts .addBtn {
+.bodyLayout .mainContent .beheerRechts .beheerOverzicht {
   background-color: #f7f7ff;
   padding: 20px;
   border-radius: 15px;
@@ -215,7 +214,7 @@ header {
 .bodyLayout .mainContent .beheerRechts .addBtn a {
   font-size: 20px;
   font-weight: 500;
-  color: #f09d51;
+  color: #fff;
 }
 
 .bodyLayout .mainContent .beheerRechts .addBtn {
@@ -279,6 +278,12 @@ header {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
+}
+
+.bodyLayout .mainContent .gebruikersTab .contentBoven .heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .bewerkBtn button {
