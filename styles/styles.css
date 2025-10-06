@@ -2,6 +2,9 @@
 /* ALGEMENE STYLING (index)  */
 /* ========================= */
 
+body {
+  margin: 0px;
+}
 main {
   padding-left: 40px;
 }

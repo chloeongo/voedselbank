@@ -30,13 +30,13 @@ include '../response/bewerkProduct.php';
           </div>
           <div class="navLink">
               <img src="../styles/images/icon-leverancier.png" alt="">
-              <a href="index.php">Leveranciers</a>
+              <a href="leveranciers.php">Leveranciers</a>
           </div>
           <div class="navLink active">
               <img src="../styles/images/icon-voorraad.png" alt="">
               <a href="voorraad.php">Voorraad</a>
           </div>
-                      <div class="navLink">
+              <div class="navLink">
                 <img src="../styles/images/icon-pakket.png">
                 <a href="index.php">Pakketten</a>
             </div>
