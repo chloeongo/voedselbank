@@ -87,7 +87,7 @@ $pdo = dbConnect();
                 <?php
                 }
                 ?>
-                <button class="blauwBtn">Beheer leveranciers</button>
+                <button class="blauwBtn" id="blauwBtnHome">Beheer leveranciers</button>
             </div>
 
             <div class="card">
@@ -122,7 +122,7 @@ $pdo = dbConnect();
                 <?php
                 }
                 ?>
-                <button class="blauwBtn">Beheer voorraad</button>
+                <button class="blauwBtn" id="blauwBtnHome">Beheer voorraad</button>
             </div>
 
             <div class="card">
@@ -148,7 +148,7 @@ $pdo = dbConnect();
                 <?php
                 }
                 ?>
-                <button class="blauwBtn">Beheer klanten</button>
+                <button class="blauwBtn" id="blauwBtnHome">Beheer klanten</button>
             </div>
         </div>
 

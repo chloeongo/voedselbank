@@ -60,7 +60,7 @@ $pdo = dbConnect();
                     <div class="heading">
                         <h3>Gebruikers</h3>
                             <a href="gebruikerform.php">
-                                <button class="blauwBtn">
+                                <button class="btn-product-toevoegen" style="border: none;">
                                 + Voeg nieuwe gebruikers toe
                                 </button>
                             </a>
