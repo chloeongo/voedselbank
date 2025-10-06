@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Voorraad - Voedselbank Maaskantje</title>
   <link rel="icon" type="image/x-icon" href="./styles/images/logo.png">
-  <link rel="stylesheet" href="./styles/voorraad.css">
+  <link rel="stylesheet" href="voorraad.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="bodyLayout">
@@ -45,7 +45,7 @@
           <h2>Producten</h2>
           <div class="producten-acties">
             <input class="producten-zoek" type="text" placeholder="Zoek product...">
-            <a href="product-toevoegen.php" class="btn-product-toevoegen">+ Product toevoegen</a>
+            <a href="../product-bewerken.php" class="btn-product-toevoegen">+ Product toevoegen</a>
           </div>
         </div>
 

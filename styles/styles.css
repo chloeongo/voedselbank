@@ -562,3 +562,10 @@ header {
   gap: 7px;
   line-height: 0.7;
 }
+
+.gegevensForm .form .contentInfo {
+  background-color: #fff;
+  border: 1px solid #f09d51;
+  border-radius: 20px;
+  padding: 10px;
+}
