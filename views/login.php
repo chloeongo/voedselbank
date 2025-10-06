@@ -19,11 +19,11 @@
       <h2>Log in</h2>
       </div>
       <form action="../response/login.php" method="post">
-          <label for="username">Gebruikersnaam</label><br>
-          <input type="text" id="username" name="username" required><br>
+          <label for="gebruikersnaam">Gebruikersnaam</label><br>
+          <input type="text" id="gebruikersnaam" name="gebruikersnaam" required><br>
 
-          <label for="password">Wachtwoord</label><br>
-          <input type="password" id="password" name="password" required><br>
+          <label for="wachtwoord">Wachtwoord</label><br>
+          <input type="password" id="wachtwoord" name="wachtwoord" required><br>
           
           <input type="submit" value="Log in" class="blauwBtn" id="submitBtn">
       </form>

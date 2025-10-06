@@ -1,6 +1,7 @@
 <?php
 include './connection/connection.php';
 $pdo = dbConnect();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +54,7 @@ $pdo = dbConnect();
       </header>
      
       <main>
-            <h2 id="welkomH2">Welkom &lt;Gebruiker&gt;</h2>
+            <h2 id="welkomH2">Welkom <?= htmlspecialchars($_SESSION['gebruikersnaam']) ?></h2>
 
         <div class="dashboard">
             <div class="card">
