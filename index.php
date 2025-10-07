@@ -28,7 +28,7 @@ session_start();
             </div>
             <div class="navLink">
                 <img src="./styles/images/icon-user.png">
-                <a href="index.php">Mijn account</a>
+                <a href="/voedselbank/views/mijn-account.php">Mijn account</a>
             </div>
             <div class="navLink">
                 <img src="./styles/images/icon-leverancier.png">

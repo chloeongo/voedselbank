@@ -26,7 +26,7 @@ include '../response/bewerkKlant.php';
             </div>
             <div class="navLink">
                 <img src="../styles/images/icon-user.png">
-                <a href="index.php">Mijn account</a>
+                <a href="mijn-account.php">Mijn account</a>
             </div>
             <div class="navLink">
                 <img src="../styles/images/icon-leverancier.png">

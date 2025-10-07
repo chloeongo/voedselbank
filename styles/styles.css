@@ -1103,3 +1103,56 @@ header {
 .familieForm {
   padding: 40px !important;
 }
+
+/* PROFIEL STYLING */
+
+.account-container {
+  background-color: #f7f7ff;
+  padding: 40px 50px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  width: 400px;
+  text-align: left;
+}
+
+.account-container h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.account-info .account-p,
+#wachtwoordBewerken {
+  background: #fff;
+  border: 1px solid #f4a261;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.account-info strong {
+  font-weight: 600;
+  color: #254e70;
+}
+
+.account-info span {
+  margin-left: 8px;
+  color: #333;
+}
+
+.wachtwoordBewerken {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.wachtwoordBewerken .wachtwoordLine {
+  display: grid;
+  width: 100%;
+  justify-content: space-between;
+  grid-template-columns: 1fr 1fr;
+}
+.wachtwoordLine {
+  gap: 20px;
+}
