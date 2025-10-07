@@ -1,0 +1,111 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  font-family: "Poppins", sans-serif;
+  color: #254e70;
+}
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+}
+
+.bodyLayout section {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+}
+
+section header {
+  background: #f7f7ff;
+  padding: 50px;
+  min-height: 100vh;
+}
+
+#headerImg img {
+  width: 148px;
+}
+
+#nav .navLink {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+#nav .navLink img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+#nav .navLink a {
+  text-decoration: none;
+}
+
+#nav .navLink.active a {
+  font-weight: bold;
+  color: #22d3ee;
+}
+
+.content {
+  padding: 60px 80px;
+}
+
+.content h1 {
+  font-size: 22px;
+  color: #254e70;
+  margin-bottom: 40px;
+}
+
+.familie-box {
+  background-color: #f7f7ff;
+  border-radius: 15px;
+  padding: 30px 40px;
+  width: 420px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.familie-box h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #254e70;
+  margin-bottom: 20px;
+}
+
+.familie-info {
+  border: 1.5px solid #f0a8a8;
+  border-radius: 10px;
+  padding: 15px 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-item p {
+  margin: 0;
+  font-size: 13px;
+  color: #254e70;
+}
+
+.info-item a {
+  text-decoration: none;
+  color: #254e70;
+  font-size: 12px;
+  transition: all 0.2s ease-in-out;
+}
+
+.info-item a:hover {
+  color: #22d3ee;
+  font-weight: 500;
+}
