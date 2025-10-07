@@ -1,7 +1,6 @@
 <?php
-include '../connection/connection.php';
-$pdo = dbConnect();
-session_start();
+include '../response/bewerkWachtwoord.php';
+
 ?>
 
 <!DOCTYPE html>

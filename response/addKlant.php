@@ -10,9 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         !empty($_POST['postcode']) &&
         !empty($_POST['telefoonnummer']) &&
         !empty($_POST['email']) &&
-        !empty($_POST['volwassene']) &&
-        !empty($_POST['kind']) &&
-        !empty($_POST['baby']) &&
+        isset($_POST['volwassene']) &&
+        isset($_POST['kind']) &&
+        isset($_POST['baby']) &&
         !empty($_POST['uitzondering'])
 ){
         try {

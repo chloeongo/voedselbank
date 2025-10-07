@@ -48,6 +48,9 @@ include '../response/bewerkKlant.php';
                 <img src="../styles/images/icon-beheer.png">
                 <a href="beheer.php">Beheren</a>
             </div>
+            <div>
+                <button class="blauwBtn">Log uit</button>
+            </div>
         </div>
       </header>
 
