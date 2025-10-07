@@ -42,7 +42,7 @@ include '../response/bewerkLeverancier.php';
             </div>
             <div class="navLink">
                 <img src="../styles/images/icon-klant.png">
-                <a href="index.php">Klanten</a>
+                <a href="klanten.php">Klanten</a>
             </div>
             <div class="navLink">
                 <img src="../styles/images/icon-beheer.png">
@@ -94,8 +94,7 @@ include '../response/bewerkLeverancier.php';
             <div class="infoLinks">
               <p style="font-weight: 600;">E-mail:</p>
             <form method="POST">
-                <input id="bewerkInput" type="text" name="email" value="<?= htmlspecialchars($leverancier['email']) ?>">                        
-              </div>
+                <input id="bewerkInput" type="text" name="email" value="<?= htmlspecialchars($leverancier['email']) ?>">                        </div>
               <div class="bewerkBtn">
                 <button type="submit">Opslaan</button>
               </div>

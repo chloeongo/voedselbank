@@ -14,42 +14,42 @@ include '../response/bewerkProduct.php';
 </head>
 <body class="bodyLayout">
   <section>
-    <header>
-      <div id="headerImg">
-          <img src="../styles/images/logo.png" alt="logo">
-      </div>
+      <header>
+        <div id="headerImg">
+            <img src="../styles/images/logo.png">
+        </div>
 
-      <div id="nav">
-          <div class="navLink">
-              <img src="../styles/images/icon-home.png" alt="">
-              <a href="../index.php">Home</a>
-          </div>
-          <div class="navLink">
-              <img src="../styles/images/icon-user.png" alt="">
-              <a href="index.php">Mijn account</a>
-          </div>
-          <div class="navLink">
-              <img src="../styles/images/icon-leverancier.png" alt="">
-              <a href="leveranciers.php">Leveranciers</a>
-          </div>
-          <div class="navLink active">
-              <img src="../styles/images/icon-voorraad.png" alt="">
-              <a href="voorraad.php">Voorraad</a>
-          </div>
-              <div class="navLink">
+        <div id="nav">
+            <div class="navLink">
+                <img src="../styles/images/icon-home.png">
+                <a href="../index.php">Home</a>
+            </div>
+            <div class="navLink">
+                <img src="../styles/images/icon-user.png">
+                <a href="index.php">Mijn account</a>
+            </div>
+            <div class="navLink">
+                <img src="../styles/images/icon-leverancier.png">
+                <a href="leveranciers.php">Leveranciers</a>
+            </div>
+            <div class="navLink active">
+                <img src="../styles/images/icon-voorraad.png">
+                <a href="voorraad.php">Voorraad</a>
+            </div>
+            <div class="navLink">
                 <img src="../styles/images/icon-pakket.png">
                 <a href="index.php">Pakketten</a>
             </div>
             <div class="navLink">
                 <img src="../styles/images/icon-klant.png">
-                <a href="index.php">Klanten</a>
+                <a href="klanten.php">Klanten</a>
             </div>
             <div class="navLink">
                 <img src="../styles/images/icon-beheer.png">
                 <a href="beheer.php">Beheren</a>
             </div>
-      </div>
-    </header>
+        </div>
+      </header>
 
     <main class="bewerken-content">
       <a href="voorraad.php" class="btn-terug">Ga terug</a>

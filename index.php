@@ -44,7 +44,7 @@ session_start();
             </div>
             <div class="navLink">
                 <img src="./styles/images/icon-klant.png">
-                <a href="index.php">Klanten</a>
+                <a href="/voedselbank/views/klanten.php">Klanten</a>
             </div>
             <div class="navLink">
                 <img src="./styles/images/icon-beheer.png">
@@ -59,7 +59,8 @@ session_start();
         <div class="dashboard">
             <div class="card">
                 <h3><a href="#">Leveringen</a></h3>
-            <!-- Haalt gegevens uit de database op -->
+            
+                <!-- Haalt gegevens uit de database op -->
                 <?php
                 $stmt = $pdo->query('SELECT 
                                         levering.idleverancier, 

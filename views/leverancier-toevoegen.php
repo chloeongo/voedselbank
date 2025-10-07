@@ -38,7 +38,7 @@
             </div>
             <div class="navLink">
                 <img src="../styles/images/icon-klant.png">
-                <a href="index.php">Klanten</a>
+                <a href="klanten.php">Klanten</a>
             </div>
             <div class="navLink">
                 <img src="../styles/images/icon-beheer.png">

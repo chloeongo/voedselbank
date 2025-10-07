@@ -34,7 +34,6 @@ if (isset($_GET['id'])) {
         $updateStmt->execute(['categorie' => $nieuweCategorie, 'id' => $idproduct]);
     }
     
-
     $stmt = $pdo->prepare('SELECT * FROM product WHERE idproduct = :id');
     $stmt->execute(['id' => $idproduct]);
     $product = $stmt->fetch(PDO::FETCH_ASSOC);

@@ -1,5 +1,6 @@
 <?php
-include '../response/bewerkGebruiker.php';
+include '../connection/connection.php';
+$pdo = dbConnect();
 ?>
 
 <!DOCTYPE html>
@@ -40,39 +41,42 @@ include '../response/bewerkGebruiker.php';
                 <img src="../styles/images/icon-pakket.png">
                 <a href="index.php">Pakketten</a>
             </div>
-            <div class="navLink">
+            <div class="navLink active">
                 <img src="../styles/images/icon-klant.png">
                 <a href="klanten.php">Klanten</a>
             </div>
-            <div class="navLink active">
+            <div class="navLink">
                 <img src="../styles/images/icon-beheer.png">
                 <a href="beheer.php">Beheren</a>
             </div>
         </div>
       </header>
      
-      <main>
+      <main class="familieForm">
         <div class="gegevensForm">
             <div class="form">
-                <h3>Bewerk <?= htmlspecialchars($gebruiker['gebruikersnaam']) ?></h3>
-                <div class="contentInfo">
-                    <div class="infoLine">
-                        <div class="infoLinks">
-                            <p style="font-weight: 600;">Gebruikersnaam:</p>
-                            <p><?= htmlspecialchars($gebruiker['gebruikersnaam']) ?></p> 
-                        </div>
-                    </div>
-                    <div class="infoLine">
-                        <div class="infoLinks">
-                            <p style="font-weight: 600;">Rol:</p>
-                        <form method="POST">
-                            <input id="bewerkInput" type="text" name="rol" value="<?= htmlspecialchars($gebruiker['rol']) ?>">                        </div>
-                        <div class="bewerkBtn">
-                            <button type="submit">Opslaan</button>
-                        </div>
-                        </form>
-                    </div>
-                </div>
+                <h3>Voeg een klant toe</h3>
+            <form action="../response/addKlant.php" method="post">
+                <label for="gebruikersnaam">Familie naam</label><br>
+                <input type="text" id="gebruikersnaam" name="naam"><br>
+                <label for="wachtwoord">Adres</label><br>
+                <input type="text" id="adres" name="adres"><br>
+                <label for="rol">Postcode</label><br>
+                <input type="text" id="postcode" name="postcode"><br><br>
+                <label for="rol">Telefoonnummer</label><br>
+                <input type="text" id="telefoonnummer" name="telefoonnummer"><br><br>
+                <label for="rol">E-mail</label><br>
+                <input type="text" id="email" name="email"><br><br>
+                <label for="rol">Volwassene</label><br>
+                <input type="number" id="volwassene" name="volwassene"><br><br>
+                <label for="rol">Kinderen</label><br>
+                <input type="number" id="kind" name="kind"><br><br>
+                <label for="rol">Baby's</label><br>
+                <input type="number" id="baby" name="baby"><br><br>
+                <label for="rol">Uitzonderingen</label><br>
+                <input type="text" id="uitzondering" name="uitzondering" style="min-height:100px;"><br><br>
+            <input type="submit" value="Voeg toe" class="blauwBtn" id="submitBtn">
+            </form>
             </div>
         </div>
       </main>

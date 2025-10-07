@@ -4,17 +4,17 @@ $pdo = dbConnect();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beheren</title>
-    <link rel="icon" type="image/x-icon" href="../styles/images/logo.png">
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Klanten - Voedselbank Maaskantje</title>
+  <link rel="icon" type="image/x-icon" href="../styles/images/logo.png">
+  <link rel="stylesheet" href="../styles/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="bodyLayout">
-    <section>
+  <section>
       <header>
         <div id="headerImg">
             <img src="../styles/images/logo.png">
@@ -41,27 +41,27 @@ $pdo = dbConnect();
                 <img src="../styles/images/icon-pakket.png">
                 <a href="index.php">Pakketten</a>
             </div>
-            <div class="navLink">
+            <div class="navLink active">
                 <img src="../styles/images/icon-klant.png">
                 <a href="klanten.php">Klanten</a>
             </div>
-            <div class="navLink active">
+            <div class="navLink">
                 <img src="../styles/images/icon-beheer.png">
                 <a href="beheer.php">Beheren</a>
             </div>
         </div>
       </header>
-     
+
       <main>
-            <h2>Beheer</h2>
+            <h2>Klanten</h2>
         <div class="mainContent">
             <div class="gebruikersTab">
                 <div class="contentBoven">
                     <div class="heading">
-                        <h3>Gebruikers</h3>
-                            <a href="gebruikerform.php">
+                        <h3>Familie's</h3>
+                            <a href="familie-form.php">
                                 <button class="btn-product-toevoegen" style="border: none;">
-                                + Voeg nieuwe gebruikers toe
+                                + Voeg nieuwe klanten toe
                                 </button>
                             </a>
                     </div>
@@ -76,20 +76,17 @@ $pdo = dbConnect();
                 <div class="gebruikersRij">
                 <!-- Haalt gegevens uit de database op -->
                 <?php
-                $stmt = $pdo->query('SELECT gebruikersnaam, rol, idgebruiker FROM gebruiker');
-                $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $stmt = $pdo->query('SELECT * FROM klant');
+                $klanten = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                foreach ($gebruikers as $gebruiker){
+                foreach ($klanten as $klant){
                 ?>
 
-                <a class="content" href="bewerkGebruiker.php?id=<?=$gebruiker['idgebruiker'] ?>">
+                <a class="content" href="familie-gegevens.php?id=<?=$klant['idklant'] ?>">
                     <div class="item">
                         <div class="item-links">
                         <p>
-                            <?= htmlspecialchars($gebruiker['gebruikersnaam']) ?>
-                        </p>
-                        <p class="smallertext">
-                            <?= htmlspecialchars($gebruiker['rol']) ?>
+                            <?= htmlspecialchars($klant['naam']) ?>
                         </p>
                         </div>
                         <div class="bewerkBtn">
@@ -106,21 +103,8 @@ $pdo = dbConnect();
                 </div>
 
             </div>
-
-            <div class="beheerRechts">
-                <div class="beheerOverzicht">
-                    <h3>Overzichten</h3>
-                    <div>
-                        <h4>Producten & leveringen</h4>
-                        <div>
-                            <button class="blauwBtn">Open overzicht</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
         </div>
       </main>
-    </section>
+  </section>
 </body>
 </html>
