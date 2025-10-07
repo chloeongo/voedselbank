@@ -897,21 +897,6 @@ header {
   gap: 15px;
 }
 
-.back-btn {
-  background-color: #22d3ee;
-  color: white;
-  text-decoration: none;
-  padding: 7px 18px;
-  border-radius: 20px;
-  font-family: "Poppins", sans-serif;
-  font-size: 13px;
-  transition: all 0.2s ease-in-out;
-}
-
-.back-btn:hover {
-  background-color: #1cbdd3;
-}
-
 .form-container {
   background-color: #f7f7ff;
   padding: 40px;
