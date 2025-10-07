@@ -1156,3 +1156,10 @@ header {
 .wachtwoordLine {
   gap: 20px;
 }
+
+.accountMain {
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

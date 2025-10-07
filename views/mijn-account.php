@@ -50,13 +50,13 @@ session_start();
           <img src="../styles/images/icon-beheer.png" alt="">
           <a href="beheer.php">Beheren</a>
         </div>
-        <button class="blauwBtn">Log in</button>
+        <button class="blauwBtn">Log uit</button>
        </div>
 
 
     </header>
 
-    <main>
+    <main class="accountMain">
       <div class="account-container">
         <h1>Mijn account</h1>
 
