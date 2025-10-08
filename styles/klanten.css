@@ -8,11 +8,25 @@ p,
 a {
   font-family: "Poppins", sans-serif;
   color: #254e70;
+  text-decoration: none;
 }
 
 body {
   margin: 0;
   background-color: #ffffff;
+}
+
+.bewerkBtn button {
+  font-family: "Poppins";
+  color: #254e70;
+  background: none;
+  border: none;
+  padding: 0px;
+}
+
+.bewerkBtn img {
+  width: 11px;
+  height: 11px;
 }
 
 .bodyLayout section {

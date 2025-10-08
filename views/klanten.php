@@ -65,40 +65,43 @@ $pdo = dbConnect();
     <main class="mainContent">
       <div class="content-wrapper">
         <div class="header-bar">
-          <h1>Klanten (Families)</h1>
+          <h1>Klanten</h1>
           <div class="header-actions">
             <input type="text" placeholder="Zoek familie..." class="zoekbar">
+            <a href="familie-form.php">
             <button class="blauwBtn">Voeg nieuwe klant toe</button>
+            </a>
           </div>
         </div>
 
         <div class="familie-lijst">
-          <div class="familie-item">
-            <div class="familie-info">
-              <h2>Familie Jansen</h2>
-              <p><strong>Aantal gezinsleden:</strong> 4</p>
-              <p><strong>Adres:</strong> Maaskantje 12, Den Dungen</p>
-            </div>
-            <button class="bekijkBtn">Bekijk</button>
-          </div>
+                <!-- Haalt gegevens uit de database op -->
+                <?php
+                $stmt = $pdo->query('SELECT * FROM klant');
+                $klanten = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-          <div class="familie-item">
-            <div class="familie-info">
-              <h2>Familie De Vries</h2>
-              <p><strong>Aantal gezinsleden:</strong> 3</p>
-              <p><strong>Adres:</strong> Dorpsstraat 45, Sint-Michielsgestel</p>
-            </div>
-            <button class="bekijkBtn">Bekijk</button>
-          </div>
+                foreach ($klanten as $klant){
+                ?>
 
-          <div class="familie-item">
-            <div class="familie-info">
-              <h2>Familie Bakker</h2>
-              <p><strong>Aantal gezinsleden:</strong> 5</p>
-              <p><strong>Adres:</strong> Kerklaan 8, Den Dungen</p>
-            </div>
-            <button class="bekijkBtn">Bekijk</button>
-          </div>
+                <a class="familie-item" href="familie-gegevens.php?id=<?=$klant['idklant'] ?>">
+                    <div class="familie-info">
+                        <div>
+                        <h3>
+                            <?= htmlspecialchars($klant['naam']) ?>
+                        </h3>
+                        </div>
+                    </div>
+                    <div class="bewerkBtn">
+                        <button>Bewerk</button>
+                        <img src="../styles/images/arrow.png">
+                    </div>
+                </a>
+
+
+                <?php
+                }
+                ?>
+
         </div>
       </div>
     </main>
