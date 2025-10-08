@@ -1163,3 +1163,105 @@ header {
   justify-content: center;
   align-items: center;
 }
+
+/* PAKKET STYLING */
+.pakket-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "familie producten"
+    "pakket producten";
+  gap: 30px;
+}
+
+.card {
+  background-color: #f7f7ff;
+  border-radius: 15px;
+  padding: 25px 30px;
+}
+
+.card h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #254e70;
+}
+
+.card-body {
+  border: 1.5px solid #f0a8a8;
+  border-radius: 10px;
+  background-color: white;
+  padding: 15px 20px;
+}
+
+.card-body p {
+  margin: 5px 0;
+  font-size: 13px;
+}
+
+.card-body span {
+  font-size: 12px;
+  color: #777;
+}
+
+.producten {
+  grid-area: producten;
+  position: relative;
+}
+
+.producten .card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.producten .searchbar {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  background: #fff;
+  border-radius: 50px;
+  height: 26px;
+  padding-left: 10px;
+  border: 1.5px solid #f0a8a8;
+}
+
+.producten .searchicon {
+  width: 14px;
+  height: 14px;
+}
+
+.producten .card-body.scroll {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.product {
+  border: 1.5px solid #f0a8a8;
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.product .amount {
+  font-size: 13px;
+  color: #254e70;
+}
+
+.familie-info {
+  grid-area: familie;
+}
+.familie-pakket {
+  grid-area: pakket;
+}

@@ -8,6 +8,7 @@ p,
 a {
   font-family: "Poppins", sans-serif;
   color: #254e70;
+  text-decoration: none;
 }
 
 body {
@@ -20,14 +21,31 @@ body {
   grid-template-columns: 260px 1fr;
 }
 
+/* HEADER STYLING */
 section header {
-  background: #f7f7ff;
+  background-color: #f7f7ff;
   padding: 50px;
   min-height: 100vh;
 }
 
+#headerImg {
+  height: 100%;
+  display: flex;
+  align-items: baseline;
+}
+
 #headerImg img {
   width: 148px;
+}
+
+header #nav .navLink img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+header {
+  display: grid;
+  grid-template-rows: 150px 100%;
 }
 
 #nav .navLink {
@@ -36,18 +54,17 @@ section header {
   margin-bottom: 16px;
 }
 
-#nav .navLink img {
-  width: 30px;
-  margin-right: 10px;
-}
-
 #nav .navLink a {
   text-decoration: none;
 }
 
+#nav .navLink a:hover {
+  color: #4ecdc4;
+}
+
 #nav .navLink.active a {
-  font-weight: bold;
-  color: #22d3ee;
+  font-weight: 600;
+  color: #4ecdc4;
 }
 
 .content {
@@ -159,4 +176,54 @@ section header {
 }
 .familie-pakket {
   grid-area: pakket;
+}
+
+.content .item {
+  border: 1px solid orangered;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  width: 100%;
+}
+
+.item:hover {
+  background: #fdf2f8;
+}
+
+.content .item div p {
+  text-decoration: none;
+  color: #254e70;
+  display: block;
+  line-height: 0.7;
+  text-align: left;
+}
+
+.smallertext {
+  font-size: 12px;
+}
+
+.bewerkBtn button {
+  font-family: "Poppins";
+  color: #254e70;
+  background: none;
+  border: none;
+  padding: 0px;
+}
+
+.bewerkBtn img {
+  width: 11px;
+  height: 11px;
+}
+
+.item-rechts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
 }

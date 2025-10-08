@@ -33,7 +33,7 @@ session_start();
                 <a href="index.php">Home</a>
             </div>
             <div class="navLink">
-                <img src="../styles/images/icon-user.png">
+                <img src="./styles/images/icon-user.png">
                 <a href="/voedselbank/views/mijn-account.php?id=<?=$gebruiker['idgebruiker'] ?>">Mijn account</a>
             </div>
             <div class="navLink">
@@ -46,7 +46,7 @@ session_start();
             </div>
             <div class="navLink">
                 <img src="./styles/images/icon-pakket.png">
-                <a href="index.php">Pakketten</a>
+                <a href="/voedselbank/views/pakketten.php">Pakketten</a>
             </div>
             <div class="navLink">
                 <img src="./styles/images/icon-klant.png">

@@ -1,9 +1,14 @@
+<?php
+include '../connection/connection.php';
+$pdo = dbConnect();
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product toevoegen - Voedselbank Maaskantje</title>
+  <title>Pakketten - Voedselbank Maaskantje</title>
   <link rel="icon" type="image/x-icon" href="../styles/images/logo.png">
   <link rel="stylesheet" href="../styles/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -30,7 +35,7 @@
                 <img src="../styles/images/icon-user.png">
                 <a href="mijn-account.php?id=<?=$gebruiker['idgebruiker'] ?>">Mijn account</a>
             </div>
-            <div class="navLink active">
+            <div class="navLink">
                 <img src="../styles/images/icon-leverancier.png">
                 <a href="leveranciers.php">Leveranciers</a>
             </div>
@@ -42,7 +47,7 @@
                 <img src="../styles/images/icon-pakket.png">
                 <a href="pakketten.php">Pakketten</a>
             </div>
-            <div class="navLink">
+            <div class="navLink active">
                 <img src="../styles/images/icon-klant.png">
                 <a href="klanten.php">Klanten</a>
             </div>
@@ -56,30 +61,54 @@
         </div>
       </header>
 
-    <main class="content">
-      <div class="form-wrapper">
-        <a href="leveranciers.php" class="btn-terug">Ga terug</a>
+      <main>
+            <h2>Klanten</h2>
+        <div class="mainContent">
+            <div class="gebruikersTab">
+                <div class="contentBoven">
+                    <div class="heading">
+                        <h3>Familie's</h3>
+                    </div>
+                    <div class="searchbar">
+                        <form>
+                        <input type="text" id="searchbar" name="searchbar">
+                    <input type="submit" value="🔍" class="searchBtn">
+                        </form>
+                    </div>
+                </div>
 
-        <div class="form-container">
-          <h2>Voeg een leverancier toe</h2>
-          <form action="../response/addLeverancier.php" method="post">
-            <label for="bedrijfsnaam">Bedrijfsnaam:</label>
-            <input type="text" id="bedrijfsnaam" name="bedrijfsnaam" placeholder="Bedrijfsnaam" required>
+                <div class="gebruikersRij">
+                <!-- Haalt gegevens uit de database op -->
+                <?php
+                $stmt = $pdo->query('SELECT * FROM klant');
+                $klanten = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            <label for="adres">Adres:</label>
-            <input type="text" id="adres" name="adres" placeholder="Adres" required>
+                foreach ($klanten as $klant){
+                ?>
 
-            <label for="contact persoon">Contact persoon:</label>
-            <input type="text" id="contactPersoon" name="contactPersoon" placeholder="Contact Persoon" required>
+                <a class="content" href="familie-pakket.php?id=<?=$klant['idklant'] ?>">
+                    <div class="item">
+                        <div class="item-links">
+                        <p>
+                            <?= htmlspecialchars($klant['naam']) ?>
+                        </p>
+                        </div>
+                        <div class="bewerkBtn">
+                            <button>Pakket toewijzen</button>
+                            <img src="../styles/images/arrow.png">
+                        </div>
+                    </div>
+                </a>
 
-            <label for="e-mail">E-Mail:</label>
-            <input type="text" id="email" name="email" placeholder="E-Mail" required>
 
-            <button type="submit" class="btn-submit">Voeg toe</button>
-          </form>
+                <?php
+                }
+                ?>
+                </div>
+
+            </div>
         </div>
-      </div>
-    </main>
+      </main>
   </section>
 </body>
 </html>
