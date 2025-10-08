@@ -20,6 +20,12 @@ include '../response/bewerkKlant.php';
         </div>
 
         <div id="nav">
+                <?php
+                $stmt = $pdo->query('SELECT gebruikersnaam, rol, idgebruiker FROM gebruiker');
+                $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ($gebruikers as $gebruiker)
+                ?>
             <div class="navLink">
                 <img src="../styles/images/icon-home.png">
                 <a href="../index.php">Home</a>
@@ -33,8 +39,8 @@ include '../response/bewerkKlant.php';
                 <a href="leveranciers.php">Leveranciers</a>
             </div>
             <div class="navLink">
-                <img src="../styles/images/icon-voorraad.png">
-                <a href="voorraad.php">Voorraad</a>
+                <img src="../styles/images/icon-user.png">
+                <a href="mijn-account.php?id=<?=$gebruiker['idgebruiker'] ?>">Mijn account</a>
             </div>
             <div class="navLink">
                 <img src="../styles/images/icon-pakket.png">

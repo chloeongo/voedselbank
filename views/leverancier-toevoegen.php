@@ -16,13 +16,19 @@
         </div>
 
         <div id="nav">
+                <?php
+                $stmt = $pdo->query('SELECT gebruikersnaam, rol, idgebruiker FROM gebruiker');
+                $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ($gebruikers as $gebruiker)
+                ?>
             <div class="navLink">
                 <img src="../styles/images/icon-home.png">
                 <a href="../index.php">Home</a>
             </div>
             <div class="navLink">
                 <img src="../styles/images/icon-user.png">
-                <a href="mijn-account.php">Mijn account</a>
+                <a href="mijn-account.php?id=<?=$gebruiker['idgebruiker'] ?>">Mijn account</a>
             </div>
             <div class="navLink active">
                 <img src="../styles/images/icon-leverancier.png">

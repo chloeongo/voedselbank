@@ -11,11 +11,11 @@ if (isset($_GET['id'])) {
         $nieuweWW = $_POST['wachtwoord'];
 
         $updateStmt = $pdo->prepare('UPDATE gebruiker SET wachtwoord = :wachtwoord WHERE idgebruiker = :id');
-        $updateStmt->execute(['wachtwoord' => $nieuweWW, 'id' => $idgebruiker]);
-    }
 
         // hash het wachtwoord
         $hashedWW = password_hash($nieuweWW, PASSWORD_DEFAULT);
+        $updateStmt->execute(['wachtwoord' => $hashedWW, 'id' => $idgebruiker]);
+    }
 
     $stmt = $pdo->prepare('SELECT * FROM gebruiker WHERE idgebruiker = :id');
     $stmt->execute(['id' => $idgebruiker]);
