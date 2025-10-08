@@ -8,7 +8,7 @@ $pdo = dbConnect();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pakketten - Voedselbank Maaskantje</title>
+  <title>Klanten - Voedselbank Maaskantje</title>
   <link rel="icon" type="image/x-icon" href="../styles/images/logo.png">
   <link rel="stylesheet" href="../styles/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -68,6 +68,11 @@ $pdo = dbConnect();
                 <div class="contentBoven">
                     <div class="heading">
                         <h3>Familie's</h3>
+                            <a href="familie-form.php">
+                                <button class="btn-product-toevoegen" style="border: none;">
+                                + Voeg nieuwe klanten toe
+                                </button>
+                            </a>
                     </div>
                     <div class="searchbar">
                         <form>
@@ -86,7 +91,7 @@ $pdo = dbConnect();
                 foreach ($klanten as $klant){
                 ?>
 
-                <a class="content" href="../response/addPakket.php?id=<?=$klant['idklant'] ?>">
+                <a class="content" href="familie-gegevens.php?id=<?=$klant['idklant'] ?>">
                     <div class="item">
                         <div class="item-links">
                         <p>
@@ -94,7 +99,7 @@ $pdo = dbConnect();
                         </p>
                         </div>
                         <div class="bewerkBtn">
-                            <button>Pakket toewijzen</button>
+                            <button>Bewerk</button>
                             <img src="../styles/images/arrow.png">
                         </div>
                     </div>

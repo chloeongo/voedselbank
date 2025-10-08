@@ -10,7 +10,7 @@ $pdo = dbConnect();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Klanten - Voedselbank Maaskantje</title>
   <link rel="icon" type="image/x-icon" href="../styles/images/logo.png">
-  <link rel="stylesheet" href="../styles/styles.css">
+  <link rel="stylesheet" href="../styles/klanten.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="bodyLayout">
@@ -61,59 +61,47 @@ $pdo = dbConnect();
         </div>
       </header>
 
-      <main>
-            <h2>Klanten</h2>
-        <div class="mainContent">
-            <div class="gebruikersTab">
-                <div class="contentBoven">
-                    <div class="heading">
-                        <h3>Familie's</h3>
-                            <a href="familie-form.php">
-                                <button class="btn-product-toevoegen" style="border: none;">
-                                + Voeg nieuwe klanten toe
-                                </button>
-                            </a>
-                    </div>
-                    <div class="searchbar">
-                        <form>
-                        <input type="text" id="searchbar" name="searchbar">
-                    <input type="submit" value="🔍" class="searchBtn">
-                        </form>
-                    </div>
-                </div>
 
-                <div class="gebruikersRij">
-                <!-- Haalt gegevens uit de database op -->
-                <?php
-                $stmt = $pdo->query('SELECT * FROM klant');
-                $klanten = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                foreach ($klanten as $klant){
-                ?>
-
-                <a class="content" href="familie-gegevens.php?id=<?=$klant['idklant'] ?>">
-                    <div class="item">
-                        <div class="item-links">
-                        <p>
-                            <?= htmlspecialchars($klant['naam']) ?>
-                        </p>
-                        </div>
-                        <div class="bewerkBtn">
-                            <button>Bewerk</button>
-                            <img src="../styles/images/arrow.png">
-                        </div>
-                    </div>
-                </a>
-
-
-                <?php
-                }
-                ?>
-                </div>
-
-            </div>
+    <main class="mainContent">
+      <div class="content-wrapper">
+        <div class="header-bar">
+          <h1>Klanten (Families)</h1>
+          <div class="header-actions">
+            <input type="text" placeholder="Zoek familie..." class="zoekbar">
+            <button class="blauwBtn">Voeg nieuwe klant toe</button>
+          </div>
         </div>
-      </main>
+
+        <div class="familie-lijst">
+          <div class="familie-item">
+            <div class="familie-info">
+              <h2>Familie Jansen</h2>
+              <p><strong>Aantal gezinsleden:</strong> 4</p>
+              <p><strong>Adres:</strong> Maaskantje 12, Den Dungen</p>
+            </div>
+            <button class="bekijkBtn">Bekijk</button>
+          </div>
+
+          <div class="familie-item">
+            <div class="familie-info">
+              <h2>Familie De Vries</h2>
+              <p><strong>Aantal gezinsleden:</strong> 3</p>
+              <p><strong>Adres:</strong> Dorpsstraat 45, Sint-Michielsgestel</p>
+            </div>
+            <button class="bekijkBtn">Bekijk</button>
+          </div>
+
+          <div class="familie-item">
+            <div class="familie-info">
+              <h2>Familie Bakker</h2>
+              <p><strong>Aantal gezinsleden:</strong> 5</p>
+              <p><strong>Adres:</strong> Kerklaan 8, Den Dungen</p>
+            </div>
+            <button class="bekijkBtn">Bekijk</button>
+          </div>
+        </div>
+      </div>
+    </main>
   </section>
 </body>
 </html>

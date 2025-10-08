@@ -96,12 +96,12 @@ $pdo = dbConnect();
         foreach ($producten as $product){
         ?>
 
-        <a class="content" href="../response/addProductInPakket.php<?=$product['idproduct'] ?>">
-          <div class="item">
-              <div class="item-links">
-                <p>
-                  <?= htmlspecialchars($product['productnaam']) ?>
-                </p>
+    <form action="../response/addProductInPakket.php" method="POST" class="">
+      <input type="hidden" name="idpakket" value="<?= $idpakket?>">
+      <input type="hidden" name="idproduct" value="<?= $product['idproduct'] ?>">
+      <div class="item">
+      <p><strong><?= htmlspecialchars($product['productnaam']) ?></strong></p>
+
                 <div class="smallertext" id="eanCategorie">
                   <p>
                   <?= htmlspecialchars($product['ean']) ?> 
@@ -110,18 +110,13 @@ $pdo = dbConnect();
                   <?= htmlspecialchars($product['categorie']) ?>
                   </p>
                 </div>
-              </div>
-              <div class="item-rechts">
-                <p>
-                  <?= htmlspecialchars($product['aantal']) ?> 
-                </p>
-                <div class="bewerkBtn">
-                  <button>Selecteer</button>
-                  <img src="../styles/images/arrow.png">
-                </div>
-              </div>
-          </div>
-        </a>
+
+      <label for="aantal_<?= $product['idproduct'] ?>">Aantal:</label>
+      <input type="number" id="aantal_<?= $product['idproduct'] ?>" name="aantal" value="1" min="1" style="width:60px;">
+
+      <button type="submit">Toevoegen</button>
+      </div>
+    </form>
 
         <?php
         }
