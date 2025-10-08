@@ -37,11 +37,11 @@ $pdo = dbConnect();
                 <img src="../styles/images/icon-voorraad.png">
                 <a href="voorraad.php">Voorraad</a>
             </div>
-            <div class="navLink">
+            <div class="navLink active">
                 <img src="../styles/images/icon-pakket.png">
                 <a href="pakketten.php">Pakketten</a>
             </div>
-            <div class="navLink active">
+            <div class="navLink">
                 <img src="../styles/images/icon-klant.png">
                 <a href="klanten.php">Klanten</a>
             </div>
@@ -62,6 +62,11 @@ $pdo = dbConnect();
     $klanten = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($klanten as $klant)
+    
+    $stmt = $pdo->query('SELECT * FROM pakket');
+    $pakketten = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($pakketten as $pakket)
     ?>
 
       <h1>Pakketten</h1>
@@ -76,11 +81,36 @@ $pdo = dbConnect();
         </div>
 
         <div class="card familie-pakket">
-          <h2>Pakket van <?= htmlspecialchars($klant['naam']) ?></h2>
+        <h2>Pakket van <?= htmlspecialchars($klant['naam']) ?></h2>
+
+        <?php
+        $idpakket = $_GET['id'];
+
+        $stmt = $pdo->prepare('
+        SELECT 
+            product.productnaam,
+            product.aantal AS voorraad,
+            pakket_has_product.aantal AS in_pakket
+        FROM 
+            pakket_has_product
+        INNER JOIN 
+            product
+        ON 
+            pakket_has_product.idproduct = product.idproduct
+        WHERE 
+            pakket_has_product.idpakket = :idpakket
+        ');
+        $stmt->execute(['idpakket' => $idpakket]);
+        $pakketProducten = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($pakketProducten as $pakketProduct){
+        ?>
           <div class="card-body">
-            <p>&lt;Product&gt; - &lt;aantal&gt;</p>
-            <p>&lt;Product&gt; - &lt;aantal&gt;</p>
+            <p><?= htmlspecialchars($pakketProduct['productnaam']) ?> - <?= htmlspecialchars($pakketProduct['in_pakket']) ?></p>
           </div>
+        <?php
+        }
+        ?>
         </div>
 
         <div class="card producten">
@@ -97,7 +127,7 @@ $pdo = dbConnect();
         ?>
 
     <form action="../response/addProductInPakket.php" method="POST" class="">
-      <input type="hidden" name="idpakket" value="<?= $idpakket?>">
+      <input type="hidden" name="idpakket" value="<?= $pakket['idpakket']?>">
       <input type="hidden" name="idproduct" value="<?= $product['idproduct'] ?>">
       <div class="item">
       <p><strong><?= htmlspecialchars($product['productnaam']) ?></strong></p>

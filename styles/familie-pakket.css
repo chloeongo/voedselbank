@@ -11,6 +11,16 @@ a {
   text-decoration: none;
 }
 
+.blauwBtn {
+  background-color: #4ecdc4;
+  font-family: "Poppins";
+  color: #ffffff;
+  padding: 12px 30px 12px 30px;
+  border-radius: 12px;
+  border: none;
+  transition: background-color 0.3s;
+}
+
 body {
   margin: 0;
   background-color: #ffffff;

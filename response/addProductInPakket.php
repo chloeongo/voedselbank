@@ -6,7 +6,6 @@ if (isset($_POST['idpakket'], $_POST['idproduct'], $_POST['aantal'])) {
     $idpakket = (int)$_POST['idpakket'];
     $idproduct = (int)$_POST['idproduct'];
     $aantal = (int)$_POST['aantal'];
-
     // kijkt of het product al in het pakket zit
     $check = $pdo->prepare("SELECT aantal FROM pakket_has_product WHERE idpakket = :idpakket AND idproduct = :idproduct");
     $check->execute(['idpakket' => $idpakket, 'idproduct' => $idproduct]);
