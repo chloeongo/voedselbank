@@ -53,6 +53,9 @@ $producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <img src="../styles/images/icon-beheer.png" alt="">
           <a href="beheer.php">Beheren</a>
         </div>
+        <div>
+          <button class="blauwBtn">Log uit</button>
+        </div>
       </div>
     </header>
 
