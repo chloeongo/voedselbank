@@ -27,7 +27,7 @@ $producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <div id="nav">
         <div class="navLink">
           <img src="../styles/images/icon-home.png" alt="">
-          <a href="index.php">Home</a>
+          <a href="../index.php">Home</a>
         </div>
         <div class="navLink">
           <img src="../styles/images/icon-user.png" alt="">
