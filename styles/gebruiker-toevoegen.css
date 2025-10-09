@@ -1,0 +1,164 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  font-family: "Poppins", sans-serif;
+  color: #254e70;
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.bodyLayout section {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  height: 100vh;
+}
+
+section header {
+  background: #f7f7ff;
+  padding: 50px;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+#headerImg img {
+  width: 148px;
+  margin-bottom: 30px;
+}
+
+#nav .navLink {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+#nav .navLink img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+#nav .navLink a:hover {
+  color: #4ecdc4;
+}
+
+#nav .navLink.active a {
+  font-weight: bold;
+  color: #22d3ee;
+}
+
+.mainContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.formContainer {
+  background-color: #f7f7ff;
+  border-radius: 14px;
+  padding: 40px 70px;
+  width: 460px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.formContainer h2 {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+label {
+  font-weight: 500;
+  color: #254e70;
+}
+
+input,
+select {
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 1.5px solid #ff8c42;
+  font-family: "Poppins";
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+input:focus,
+select:focus {
+  border-color: #4ecdc4;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%23254e70' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 14px;
+  cursor: pointer;
+}
+
+select option:hover,
+select option:focus,
+select option:checked {
+  background-color: #4ecdc4 !important;
+  color: white !important;
+}
+
+.toevoegBtn {
+  align-self: flex-end;
+  background-color: #4ecdc4;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toevoegBtn:hover {
+  background-color: #27ada4;
+}
+
+@media (max-width: 1000px) {
+  .bodyLayout section {
+    grid-template-columns: 1fr;
+  }
+
+  section header {
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .formContainer {
+    width: 90%;
+    padding: 30px;
+  }
+
+  body {
+    overflow-y: auto;
+  }
+}
