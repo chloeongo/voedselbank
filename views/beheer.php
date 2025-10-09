@@ -122,7 +122,9 @@ $pdo = dbConnect();
                     <div>
                         <h4>Producten & leveringen</h4>
                         <div>
+                            <a href="maandoverzicht.php">
                             <button class="blauwBtn">Open overzicht</button>
+                            </a>
                         </div>
                     </div>
 
