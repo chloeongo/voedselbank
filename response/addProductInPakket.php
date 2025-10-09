@@ -22,6 +22,12 @@ if (isset($_POST['idpakket'], $_POST['idproduct'], $_POST['aantal'])) {
         $insert->execute(['idpakket' => $idpakket, 'idproduct' => $idproduct, 'aantal' => $aantal]);
     }
 
+    //trekt de producten in de pakket af van de product in de voorraad
+    $updateVoorraad = $pdo->prepare("UPDATE product 
+                                     SET aantal = GREATEST(aantal - :aantal, 0) 
+                                     WHERE idproduct = :idproduct");
+    $updateVoorraad->execute(['aantal' => $aantal, 'idproduct' => $idproduct]);
+
     header("Location: ../views/familie-pakket.php?id=$idpakket");
     exit();
 } else {
