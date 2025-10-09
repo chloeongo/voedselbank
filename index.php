@@ -28,7 +28,7 @@ session_start();
 
                 foreach ($gebruikers as $gebruiker)
                 ?>
-            <div class="navLink">
+            <div class="navLink active">
                 <img src="./styles/images/icon-home.png">
                 <a href="index.php">Home</a>
             </div>

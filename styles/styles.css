@@ -211,6 +211,14 @@ header {
   border-radius: 15px;
 }
 
+.gebruikersTab {
+  background-color: #f7f7ff;
+  padding: 20px;
+  display: grid;
+  grid-template-rows: 100px 100%;
+  border-radius: 15px;
+}
+
 .bodyLayout .mainContent .beheerRechts .beheerOverzicht {
   background-color: #f7f7ff;
   padding: 20px;
@@ -1031,6 +1039,20 @@ header {
 .pakket-status {
   color: #254e70;
   opacity: 0.8;
+}
+
+.mainPakket {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+#pakketTab {
+  margin-right: 40px;
+}
+
+#familieTab {
+  width: 500px;
 }
 
 .familie-item button {

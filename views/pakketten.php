@@ -43,11 +43,11 @@ $pdo = dbConnect();
                 <img src="../styles/images/icon-voorraad.png">
                 <a href="voorraad.php">Voorraad</a>
             </div>
-            <div class="navLink">
+            <div class="navLink active">
                 <img src="../styles/images/icon-pakket.png">
                 <a href="pakketten.php">Pakketten</a>
             </div>
-            <div class="navLink active">
+            <div class="navLink">
                 <img src="../styles/images/icon-klant.png">
                 <a href="klanten.php">Klanten</a>
             </div>
@@ -62,9 +62,12 @@ $pdo = dbConnect();
       </header>
 
       <main>
-            <h2>Klanten</h2>
+            <h2>Pakketten</h2>
+
+<div class="mainPakket">
         <div class="mainContent">
-            <div class="gebruikersTab">
+            
+        <div class="gebruikersTab" id="familieTab">
                 <div class="contentBoven">
                     <div class="heading">
                         <h3>Familie's</h3>
@@ -108,6 +111,47 @@ $pdo = dbConnect();
 
             </div>
         </div>
+
+        <div class="gebruikersTab" id="pakketTab">
+                <div class="contentBoven"> 
+                    <div class="heading">
+                        <h3>Gemaakte pakketten</h3>
+                    </div>
+                </div>
+
+                <div class="gebruikersRij">
+                <!-- Haalt gegevens uit de database op -->
+                <?php
+                $stmt = $pdo->query('SELECT * FROM klant');
+                $klanten = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ($klanten as $klant){
+                ?>
+
+                <a class="content" href="../response/addPakket.php?id=<?=$klant['idklant'] ?>">
+                    <div class="item">
+                        <div class="item-links">
+                        <p>
+                            <?= htmlspecialchars($klant['naam']) ?>
+                        </p>
+                        </div>
+                        <div class="bewerkBtn">
+                            <button>Pakket toewijzen</button>
+                            <img src="../styles/images/arrow.png">
+                        </div>
+                    </div>
+                </a>
+
+
+                <?php
+                }
+                ?>
+                </div>
+
+            </div>
+        </div>
+
+</div>
       </main>
   </section>
 </body>
