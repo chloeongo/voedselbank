@@ -4,14 +4,14 @@ session_start();
 $pdo = dbConnect();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!empty($_POST['gebruikersnaam']) && !empty($_POST['wachtwoord']) && !empty($_POST['rol'])) {
+    if (!empty($_POST['gebruikersnaam']) && !empty($_POST['wachtwoord']) && !empty($_POST['idrol'])) {
         try {
-            $stmt = $pdo->prepare('INSERT INTO gebruiker (gebruikersnaam, wachtwoord, rol) VALUES (:gebruikersnaam, :wachtwoord, :rol)');
+            $stmt = $pdo->prepare('INSERT INTO gebruiker (gebruikersnaam, wachtwoord, idrol) VALUES (:gebruikersnaam, :wachtwoord, :idrol)');
 
             $stmt->execute([
                 'gebruikersnaam' => $_POST['gebruikersnaam'],
                 'wachtwoord' => password_hash($_POST['wachtwoord'], PASSWORD_DEFAULT),                  
-                'rol' => $_POST['rol'],
+                'idrol' => $_POST['idrol'],
 
             ]);
 

@@ -106,7 +106,10 @@ $pdo = dbConnect();
         foreach ($pakketProducten as $pakketProduct){
         ?>
           <div class="card-body">
-            <p><?= htmlspecialchars($pakketProduct['productnaam']) ?> - <?= htmlspecialchars($pakketProduct['in_pakket']) ?></p>
+            <p>
+              <?= htmlspecialchars($pakketProduct['productnaam']) ?>
+             - <?= htmlspecialchars($pakketProduct['in_pakket']) ?>
+            </p>
           </div>
         <?php
         }

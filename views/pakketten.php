@@ -122,13 +122,13 @@ $pdo = dbConnect();
                 <div class="gebruikersRij">
                 <!-- Haalt gegevens uit de database op -->
                 <?php
-                $stmt = $pdo->query('SELECT * FROM klant');
-                $klanten = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $stmt = $pdo->query('SELECT * FROM pakket_has_product');
+                $pakketProducten = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                foreach ($klanten as $klant){
+                foreach ($pakketProducten as $pakketProduct){
                 ?>
 
-                <a class="content" href="../response/addPakket.php?id=<?=$klant['idklant'] ?>">
+                <a class="content" href="../views/pakket-gegevens.php?idpakket=<?=$pakketProduct['idpakket'] ?>">
                     <div class="item">
                         <div class="item-links">
                         <p>
@@ -136,18 +136,15 @@ $pdo = dbConnect();
                         </p>
                         </div>
                         <div class="bewerkBtn">
-                            <button>Pakket toewijzen</button>
+                            <button>Status bewerken</button>
                             <img src="../styles/images/arrow.png">
                         </div>
                     </div>
                 </a>
-
-
                 <?php
                 }
                 ?>
                 </div>
-
             </div>
         </div>
 

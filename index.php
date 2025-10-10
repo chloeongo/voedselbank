@@ -1,5 +1,8 @@
 <?php
 include './connection/connection.php';
+include './response/toegang.php';
+
+
 $pdo = dbConnect();
 session_start();
 ?>

@@ -70,9 +70,14 @@ $pdo = dbConnect();
                 <input type="text" id="gebruikersnaam" name="gebruikersnaam"><br>
                 <label for="wachtwoord">Wachtwoord</label><br>
                 <input type="password" id="wachtwoord" name="wachtwoord"><br>
-                <label for="rol">Rol</label><br>
-                <input type="text" id="rol" name="rol"><br><br>
-            <input type="submit" value="Voeg toe" class="blauwBtn" id="submitBtn">
+                <label for="rol">Rol</label>
+                    <select id="rol" name="idrol" required>
+                        <option value="" disabled selected>Kies een rol</option>
+                        <option value="1" name="rol">Directie</option>
+                        <option value="2" name="rol">Magazijnmedewerker</option>
+                        <option value="3" name="rol">Vrijwilliger</option>
+                    </select>            
+                <input type="submit" value="Voeg toe" class="blauwBtn" id="submitBtn">
             </form>
             </div>
         </div>
