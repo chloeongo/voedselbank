@@ -21,19 +21,13 @@ checkRol(['1'],['3']);
         </div>
 
         <div id="nav">
-        <?php
-        $stmt = $pdo->query('SELECT idgebruiker FROM gebruiker');
-        $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        foreach ($gebruikers as $gebruiker)
-        ?>
             <div class="navLink">
                 <img src="../styles/images/icon-home.png">
                 <a href="../index.php">Home</a>
             </div>
             <div class="navLink">
                 <img src="../styles/images/icon-user.png">
-                <a href="mijn-account.php?id=<?=$gebruiker['idgebruiker'] ?>">Mijn account</a>
+                <a href="mijn-account.php?id=<?=$_SESSION['idgebruiker'] ?>">Mijn account</a>
             </div>
 <?php if (toonElement(['1'],['2'])): ?>
             <div class="navLink">
@@ -65,8 +59,8 @@ checkRol(['1'],['3']);
                 <a href="beheer.php">Beheren</a>
             </div>
 <?php endif; ?>
-            <form action="../response/loguit.php" method="POST">
-                <button class="blauwBtn">Log uit</button>
+            <form method="POST" action="../response/loguit.php">
+              <button type="submit" name="logout" class="blauwBtn">Log uit</button>
             </form>
         </div>
       </header>

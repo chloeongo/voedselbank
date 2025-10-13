@@ -1,6 +1,5 @@
 <?php
-include '../response/bewerkWachtwoord.php';
-
+include '../response/toegang.php';
 ?>
 
 <!DOCTYPE html>
@@ -15,49 +14,55 @@ include '../response/bewerkWachtwoord.php';
 </head>
 <body class="bodyLayout">
   <section>
-    <header>
-      <div id="headerImg">
-        <img src="../styles/images/logo.png" alt="logo">
-      </div>
+      <header>
+        <div id="headerImg">
+            <img src="../styles/images/logo.png">
+        </div>
 
-      <div id="nav">
-                <?php
-                $stmt = $pdo->query('SELECT idgebruiker FROM gebruiker');
-                $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                foreach ($gebruikers as $gebruiker)
-                ?>
-        <div class="navLink">
-          <img src="../styles/images/icon-home.png" alt="">
-          <a href="../index.php">Home</a>
+        <div id="nav">
+            <div class="navLink">
+                <img src="../styles/images/icon-home.png">
+                <a href="../index.php">Home</a>
+            </div>
+            <div class="navLink active">
+                <img src="../styles/images/icon-user.png">
+                <a href="mijn-account.php?id=<?=$_SESSION['idgebruiker'] ?>">Mijn account</a>
+            </div>
+<?php if (toonElement(['1'],['2'])): ?>
+            <div class="navLink">
+                <img src="../styles/images/icon-leverancier.png">
+                <a href="leveranciers.php">Leveranciers</a>
+            </div>
+<?php endif; ?>
+<?php if (toonElement(['1'],['2'])): ?>
+            <div class="navLink">
+                <img src="../styles/images/icon-voorraad.png">
+                <a href="voorraad.php">Voorraad</a>
+            </div>
+<?php endif; ?>
+<?php if (toonElement(['1'],['3'])): ?>
+            <div class="navLink">
+                <img src="../styles/images/icon-pakket.png">
+                <a href="pakketten.php">Pakketten</a>
+            </div>
+<?php endif; ?>
+<?php if (toonElement(['1'])): ?>
+            <div class="navLink">
+                <img src="../styles/images/icon-klant.png">
+                <a href="klanten.php">Klanten</a>
+            </div>
+<?php endif; ?>
+<?php if (toonElement(['1'])): ?>
+            <div class="navLink">
+                <img src="../styles/images/icon-beheer.png">
+                <a href="beheer.php">Beheren</a>
+            </div>
+<?php endif; ?>
+            <form method="POST" action="../response/loguit.php">
+              <button type="submit" name="logout" class="blauwBtn">Log uit</button>
+            </form>
         </div>
-        <div class="navLink active">
-            <img src="../styles/images/icon-user.png">
-            <a href="mijn-account.php?id=<?=$gebruiker['idgebruiker'] ?>">Mijn account</a>
-        </div>
-        <div class="navLink">
-          <img src="../styles/images/icon-leverancier.png" alt="">
-          <a href="leveranciers.php">Leveranciers</a>
-        </div>
-        <div class="navLink">
-          <img src="../styles/images/icon-voorraad.png" alt="">
-          <a href="voorraad.php">Voorraad</a>
-        </div>
-        <div class="navLink">
-          <img src="../styles/images/icon-pakket.png" alt="">
-          <a href="pakketten.php">Pakketten</a>
-        </div>
-        <div class="navLink">
-          <img src="../styles/images/icon-klant.png" alt="">
-          <a href="klanten.php">Klanten</a>
-        </div>
-        <div class="navLink">
-          <img src="../styles/images/icon-beheer.png" alt="">
-          <a href="beheer.php">Beheren</a>
-        </div>
-        <button class="blauwBtn">Log uit</button>
-       </div>
-    </header>
+      </header>
 
     <main class="accountMain">
       <div class="account-container">
@@ -65,18 +70,21 @@ include '../response/bewerkWachtwoord.php';
 
             <!-- Haalt gegevens uit de database op -->
                 <?php
-                $stmt = $pdo->query('SELECT 
-                                    gebruiker.gebruikersnaam, 
-                                    gebruiker.idrol, 
-                                    gebruiker.idgebruiker,
-                                    rol.rolnaam 
-                                FROM gebruiker
-                                INNER JOIN rol
-                                ON rol.idrol = gebruiker.idrol');
+                $idgebruiker = $_SESSION['idgebruiker'];
 
-                $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                foreach ($gebruikers as $gebruiker)
+                $stmt = $pdo->prepare('
+                SELECT 
+                    gebruiker.gebruikersnaam, 
+                    gebruiker.idrol, 
+                    gebruiker.idgebruiker,
+                    rol.rolnaam 
+                FROM gebruiker
+                INNER JOIN rol ON rol.idrol = gebruiker.idrol
+                WHERE gebruiker.idgebruiker = :idgebruiker
+                ');
+                $stmt->execute(['idgebruiker' => $idgebruiker]);
+                $gebruiker = $stmt->fetch(PDO::FETCH_ASSOC);
                 ?>
 
         <div class="account-info">
@@ -92,7 +100,7 @@ include '../response/bewerkWachtwoord.php';
         <p>
           <strong>Wachtwoord:</strong>
         </p>
-            <form method="POST" class="wachtwoordLine">
+            <form method="POST" class="wachtwoordLine" action="../response/bewerkWachtwoord.php">
                 <input id="bewerkInput" type="password" name="wachtwoord" value="">                        
         
                 <div class="bewerkBtn">

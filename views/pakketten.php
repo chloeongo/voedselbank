@@ -21,43 +21,47 @@ checkRol(['1'],['3']);
         </div>
 
         <div id="nav">
-        <?php
-        $stmt = $pdo->query('SELECT idgebruiker FROM gebruiker');
-        $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        foreach ($gebruikers as $gebruiker)
-        ?>
             <div class="navLink">
                 <img src="../styles/images/icon-home.png">
                 <a href="../index.php">Home</a>
             </div>
             <div class="navLink">
                 <img src="../styles/images/icon-user.png">
-                <a href="mijn-account.php?id=<?=$gebruiker['idgebruiker'] ?>">Mijn account</a>
+                <a href="mijn-account.php?id=<?=$_SESSION['idgebruiker'] ?>">Mijn account</a>
             </div>
+<?php if (toonElement(['1'],['2'])): ?>
             <div class="navLink">
                 <img src="../styles/images/icon-leverancier.png">
                 <a href="leveranciers.php">Leveranciers</a>
             </div>
+<?php endif; ?>
+<?php if (toonElement(['1'],['2'])): ?>
             <div class="navLink">
                 <img src="../styles/images/icon-voorraad.png">
                 <a href="voorraad.php">Voorraad</a>
             </div>
+<?php endif; ?>
+<?php if (toonElement(['1'],['3'])): ?>
             <div class="navLink active">
                 <img src="../styles/images/icon-pakket.png">
                 <a href="pakketten.php">Pakketten</a>
             </div>
+<?php endif; ?>
+<?php if (toonElement(['1'])): ?>
             <div class="navLink">
                 <img src="../styles/images/icon-klant.png">
                 <a href="klanten.php">Klanten</a>
             </div>
+<?php endif; ?>
+<?php if (toonElement(['1'])): ?>
             <div class="navLink">
                 <img src="../styles/images/icon-beheer.png">
                 <a href="beheer.php">Beheren</a>
             </div>
-            <div>
-                <button class="blauwBtn">Log uit</button>
-            </div>
+<?php endif; ?>
+            <form method="POST" action="../response/loguit.php">
+              <button type="submit" name="logout" class="blauwBtn">Log uit</button>
+            </form>
         </div>
       </header>
 
@@ -70,12 +74,6 @@ checkRol(['1'],['3']);
                 <div class="contentBoven">
                     <div class="heading">
                         <h3>Familie's</h3>
-                    </div>
-                    <div class="searchbar">
-                        <form>
-                        <input type="text" id="searchbar" name="searchbar">
-                        <input type="submit" value="🔍" class="searchBtn">
-                        </form>
                     </div>
                 </div>
 
@@ -124,19 +122,22 @@ checkRol(['1'],['3']);
                 <!-- Haalt gegevens uit de database op -->
                 <?php
                 $stmt = $pdo->query('
-                SELECT DISTINCT idpakket 
-                FROM pakket_has_product
+                    SELECT DISTINCT p.idpakket, p.idklant, k.naam
+                    FROM pakket p
+                    INNER JOIN klant k ON p.idklant = k.idklant
+                    INNER JOIN pakket_has_product php ON p.idpakket = php.idpakket
+                    WHERE p.uitgifte IS NULL
                 ');
                 $pakketten = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 foreach ($pakketten as $pakket) {
                 ?>
 
-                <a class="content" href="../views/pakket-gegevens.php?idpakket=<?=$pakket['idpakket']?>&idklant=<?=$klant['idklant'] ?>">
+                <a class="content" href="../views/pakket-gegevens.php?idpakket=<?=$pakket['idpakket']?>&idklant=<?=$pakket['idklant'] ?>">
                     <div class="item">
                         <div class="item-links">
                         <p>
-                            <?= htmlspecialchars($klant['naam']) ?>
+                            <?= htmlspecialchars($pakket['naam']) ?>
                         </p>
                         </div>
                         <div class="bewerkBtn">

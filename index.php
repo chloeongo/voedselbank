@@ -44,19 +44,13 @@ checkRol(['1'],['2'],['3']);
         </div>
 
         <div id="nav">
-                <?php
-                $stmt = $pdo->query('SELECT idgebruiker FROM gebruiker');
-                $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                foreach ($gebruikers as $gebruiker)
-                ?>
             <div class="navLink active">
                 <img src="./styles/images/icon-home.png">
                 <a href="index.php">Home</a>
             </div>
             <div class="navLink">
                 <img src="./styles/images/icon-user.png">
-                <a href="/voedselbank/views/mijn-account.php?id=<?=$gebruiker['idgebruiker'] ?>">Mijn account</a>
+                <a href="/voedselbank/views/mijn-account.php?id=<?=$_SESSION['idgebruiker'] ?>">Mijn account</a>
             </div>
 <?php if (toonElement(['1'],['2'])): ?>
             <div class="navLink">

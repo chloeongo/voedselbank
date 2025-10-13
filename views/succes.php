@@ -21,43 +21,47 @@ $pdo = dbConnect();
         </div>
 
         <div id="nav">
-                <?php
-                $stmt = $pdo->query('SELECT idgebruiker FROM gebruiker');
-                $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                foreach ($gebruikers as $gebruiker)
-                ?>
             <div class="navLink">
                 <img src="../styles/images/icon-home.png">
                 <a href="../index.php">Home</a>
             </div>
             <div class="navLink">
                 <img src="../styles/images/icon-user.png">
-                <a href="mijn-account.php?id=<?=$gebruiker['idgebruiker'] ?>">Mijn account</a>
+                <a href="mijn-account.php?id=<?=$_SESSION['idgebruiker'] ?>">Mijn account</a>
             </div>
+<?php if (toonElement(['1'],['2'])): ?>
             <div class="navLink">
                 <img src="../styles/images/icon-leverancier.png">
                 <a href="leveranciers.php">Leveranciers</a>
             </div>
+<?php endif; ?>
+<?php if (toonElement(['1'],['2'])): ?>
             <div class="navLink">
                 <img src="../styles/images/icon-voorraad.png">
                 <a href="voorraad.php">Voorraad</a>
             </div>
+<?php endif; ?>
+<?php if (toonElement(['1'],['3'])): ?>
             <div class="navLink">
                 <img src="../styles/images/icon-pakket.png">
                 <a href="pakketten.php">Pakketten</a>
             </div>
+<?php endif; ?>
+<?php if (toonElement(['1'])): ?>
             <div class="navLink">
                 <img src="../styles/images/icon-klant.png">
                 <a href="klanten.php">Klanten</a>
             </div>
+<?php endif; ?>
+<?php if (toonElement(['1'])): ?>
             <div class="navLink">
                 <img src="../styles/images/icon-beheer.png">
                 <a href="beheer.php">Beheren</a>
             </div>
-            <div>
-                <button class="blauwBtn">Log uit</button>
-            </div>
+<?php endif; ?>
+            <form method="POST" action="../response/loguit.php">
+              <button type="submit" name="logout" class="blauwBtn">Log uit</button>
+            </form>
         </div>
       </header>
      
