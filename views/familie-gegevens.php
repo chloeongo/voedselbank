@@ -1,5 +1,11 @@
 <?php
-include '../response/bewerkKlant.php';
+include '../response/toegang.php';
+checkRol(['1']);
+
+$stmt = $pdo->query('SELECT * FROM klant');
+$klanten = $stmt->fetchAll(PDO::FETCH_ASSOC);
+foreach ($klanten as $klant)
+
 ?>
 
 <!DOCTYPE html>
@@ -69,7 +75,7 @@ include '../response/bewerkKlant.php';
           <div class="infoLine" id="bewerkProduct">
             <div class="infoLinks">
               <p style="font-weight: 600;">Familie naam:</p>
-            <form method="POST">
+            <form method="POST" action="../response/bewerkKlant.php?id=<?=$klant['idklant']?>">
                 <input id="bewerkInput" type="text" name="naam" value=" <?= htmlspecialchars($klant['naam']) ?>">                        
               </div>
               <div class="bewerkBtn">
@@ -80,7 +86,7 @@ include '../response/bewerkKlant.php';
           <div class="infoLine" id="bewerkProduct">
             <div class="infoLinks">
               <p style="font-weight: 600;">Adres:</p>
-            <form method="POST">
+            <form method="POST" action="../response/bewerkKlant.php?id=<?=$klant['idklant']?>">
                 <input id="bewerkInput" type="text" name="adres" value="<?= htmlspecialchars($klant['adres']) ?>">                        </div>
               <div class="bewerkBtn">
                 <button type="submit">Opslaan</button>
@@ -90,7 +96,7 @@ include '../response/bewerkKlant.php';
           <div class="infoLine" id="bewerkProduct">
             <div class="infoLinks">
               <p style="font-weight: 600;">Postcode:</p>
-            <form method="POST">
+            <form method="POST" action="../response/bewerkKlant.php?id=<?=$klant['idklant']?>">
                 <input id="bewerkInput" type="text" name="postcode" value="<?= htmlspecialchars($klant['postcode']) ?>">                        </div>
               <div class="bewerkBtn">
                 <button type="submit">Opslaan</button>
@@ -100,7 +106,7 @@ include '../response/bewerkKlant.php';
           <div class="infoLine" id="bewerkProduct">
             <div class="infoLinks">
               <p style="font-weight: 600;">Telefoonnummer:</p>
-            <form method="POST">
+            <form method="POST" action="../response/bewerkKlant.php?id=<?=$klant['idklant']?>">
                 <input id="bewerkInput" type="text" name="telefoonnummer" value="<?= htmlspecialchars($klant['telefoonnummer']) ?>">                        </div>
               <div class="bewerkBtn">
                 <button type="submit">Opslaan</button>
@@ -110,7 +116,7 @@ include '../response/bewerkKlant.php';
           <div class="infoLine" id="bewerkProduct">
             <div class="infoLinks">
               <p style="font-weight: 600;">E-mail:</p>
-            <form method="POST">
+            <form method="POST" action="../response/bewerkKlant.php?id=<?=$klant['idklant']?>">
                 <input id="bewerkInput" type="text" name="email" value="<?= htmlspecialchars($klant['email']) ?>">                        </div>
               <div class="bewerkBtn">
                 <button type="submit">Opslaan</button>
@@ -120,7 +126,7 @@ include '../response/bewerkKlant.php';
           <div class="infoLine" id="bewerkProduct">
             <div class="infoLinks">
               <p style="font-weight: 600;">Volwassene:</p>
-            <form method="POST">
+            <form method="POST" action="../response/bewerkKlant.php?id=<?=$klant['idklant']?>">
                 <input id="bewerkInput" type="text" name="volwassene" value="<?= htmlspecialchars($klant['volwassene']) ?>">                        </div>
               <div class="bewerkBtn">
                 <button type="submit">Opslaan</button>
@@ -130,7 +136,7 @@ include '../response/bewerkKlant.php';
           <div class="infoLine" id="bewerkProduct">
             <div class="infoLinks">
               <p style="font-weight: 600;">Kinderen:</p>
-            <form method="POST">
+            <form method="POST" action="../response/bewerkKlant.php?id=<?=$klant['idklant']?>">
                 <input id="bewerkInput" type="text" name="kind" value="<?= htmlspecialchars($klant['kind']) ?>">                        </div>
               <div class="bewerkBtn">
                 <button type="submit">Opslaan</button>
@@ -140,7 +146,7 @@ include '../response/bewerkKlant.php';
           <div class="infoLine" id="bewerkProduct">
             <div class="infoLinks">
               <p style="font-weight: 600;">Babys's:</p>
-            <form method="POST">
+            <form method="POST" action="../response/bewerkKlant.php?id=<?=$klant['idklant']?>">
                 <input id="bewerkInput" type="text" name="baby" value="<?= htmlspecialchars($klant['baby']) ?>">                        </div>
               <div class="bewerkBtn">
                 <button type="submit">Opslaan</button>
@@ -150,7 +156,7 @@ include '../response/bewerkKlant.php';
           <div class="infoLine" id="bewerkProduct">
             <div class="infoLinks">
               <p style="font-weight: 600;">Uitzonderingen:</p>
-            <form method="POST">
+            <form method="POST" action="../response/bewerkKlant.php?id=<?=$klant['idklant']?>">
                 <input id="bewerkInput" type="text" name="uitzondering" value="<?= htmlspecialchars($klant['uitzondering']) ?>">                        </div>
               <div class="bewerkBtn">
                 <button type="submit">Opslaan</button>

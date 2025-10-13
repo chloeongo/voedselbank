@@ -1,3 +1,8 @@
+<?php
+include '../response/toegang.php';
+checkRol(['1'],['2']);
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>

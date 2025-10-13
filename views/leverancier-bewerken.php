@@ -1,5 +1,6 @@
 <?php
-include '../response/bewerkLeverancier.php';
+include '../response/toegang.php';
+checkRol(['1'],['2']);
 ?>
 
 <!DOCTYPE html>
@@ -61,6 +62,15 @@ include '../response/bewerkLeverancier.php';
       </header>
 
     <main class="content">
+
+<?php
+    $idleverancier = (int)$_GET['id']; 
+
+    $stmt = $pdo->prepare('SELECT * FROM leverancier WHERE idleverancier = :id');
+    $stmt->execute(['id' => $idleverancier]);
+    $leverancier = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
+    
       <div class="center-container">
         <a href="leveranciers.php" class="btn-terug">Ga terug</a>
 
@@ -72,7 +82,7 @@ include '../response/bewerkLeverancier.php';
           <div class="infoLine" id="bewerkProduct">
             <div class="infoLinks">
               <p style="font-weight: 600;">Bedrijfsnaam:</p>
-            <form method="POST">
+            <form action="../response/bewerkLeverancier.php" method="POST">
                 <input id="bewerkInput" type="text" name="bedrijfsnaam" value="<?= htmlspecialchars($leverancier['bedrijfsnaam']) ?>">                        </div>
               <div class="bewerkBtn">
                 <button type="submit">Opslaan</button>
@@ -82,7 +92,7 @@ include '../response/bewerkLeverancier.php';
           <div class="infoLine" id="bewerkProduct">
             <div class="infoLinks">
               <p style="font-weight: 600;">Adres:</p>
-            <form method="POST">
+            <form action="../response/bewerkLeverancier.php" method="POST">
                 <input id="bewerkInput" type="text" name="adres" value="<?= htmlspecialchars($leverancier['adres']) ?>">                        </div>
               <div class="bewerkBtn">
                 <button type="submit">Opslaan</button>
@@ -92,7 +102,7 @@ include '../response/bewerkLeverancier.php';
           <div class="infoLine" id="bewerkProduct">
             <div class="infoLinks">
               <p style="font-weight: 600;">Contact persoon:</p>
-            <form method="POST">
+            <form action="../response/bewerkLeverancier.php" method="POST">
                 <input id="bewerkInput" type="text" name="contactPersoon" value="<?= htmlspecialchars($leverancier['contactPersoon']) ?>">                        </div>
               <div class="bewerkBtn">
                 <button type="submit">Opslaan</button>
@@ -102,7 +112,7 @@ include '../response/bewerkLeverancier.php';
           <div class="infoLine" id="bewerkProduct">
             <div class="infoLinks">
               <p style="font-weight: 600;">E-mail:</p>
-            <form method="POST">
+            <form action="../response/bewerkLeverancier.php" method="POST">
                 <input id="bewerkInput" type="text" name="email" value="<?= htmlspecialchars($leverancier['email']) ?>">                        </div>
               <div class="bewerkBtn">
                 <button type="submit">Opslaan</button>

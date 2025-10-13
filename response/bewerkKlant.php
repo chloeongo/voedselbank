@@ -65,6 +65,8 @@ if (isset($_GET['id'])) {
         $updateStmt = $pdo->prepare('UPDATE klant SET uitzondering = :uitzondering WHERE idklant = :id');
         $updateStmt->execute(['uitzondering' => $nieuweU, 'id' => $idklant]);
     }
+
+    header("Location: ../views/succes.php");
     
     $stmt = $pdo->prepare('SELECT * FROM klant WHERE idklant = :id');
     $stmt->execute(['id' => $idklant]);

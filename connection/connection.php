@@ -1,6 +1,7 @@
 <?php
 $pdo = dbConnect();
 
+// connectie
 function dbConnect()
 {
     $servername = "127.0.0.1:3307";
@@ -20,4 +21,5 @@ function dbConnect()
         return null;
     }
 }
+
 ?>

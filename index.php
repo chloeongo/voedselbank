@@ -1,10 +1,23 @@
 <?php
 include './connection/connection.php';
-include './response/toegang.php';
-
-
 $pdo = dbConnect();
 session_start();
+
+function checkRol($toegestaneRollen = []) {
+    if (!isset($_SESSION['idrol'])) {
+        // niet ingelogd > terug naar login
+        header("Location: ./views/login.php");
+        exit();
+    }
+
+    // als gebruiker niet een toegestane rol heeft redirect > geen toegang
+    if (!in_array($_SESSION['idrol'], $toegestaneRollen)) {
+        header("Location: ./views/geentoegang.php");
+        exit();
+    }
+}
+
+checkRol(['1'],['2'],['3']);
 ?>
 
 <!DOCTYPE html>

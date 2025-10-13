@@ -7,8 +7,6 @@ if (isset($_GET['idpakket'])) {
     $idpakket = (int)$_GET['idpakket'];
     $uitgifteDatum = date("Y/m/d");
 
-    var_dump($uitgifteDatum);
-
     $updatestmt = $pdo->prepare("UPDATE pakket SET uitgifte = :uitgifte WHERE idpakket = :idpakket");
     $updatestmt->execute([
         'uitgifte' => $uitgifteDatum,

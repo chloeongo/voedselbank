@@ -1,6 +1,6 @@
 <?php
-include '../connection/connection.php';
-$pdo = dbConnect();
+include '../response/toegang.php';
+checkRol(['1']);
 
 $stmt = $pdo->query("SELECT productnaam, aantal FROM product");
 $producten = $stmt->fetchAll(PDO::FETCH_ASSOC);

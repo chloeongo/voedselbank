@@ -1,7 +1,8 @@
 <?php
-include '../connection/connection.php';
-$pdo = dbConnect();
+include '../response/toegang.php';
+checkRol(['1']);
 ?>
+
 
 <!DOCTYPE html>
 <html lang="nl">

@@ -1,6 +1,6 @@
 <?php
-include '../connection/connection.php';
-$pdo = dbConnect();
+include '../response/toegang.php';
+checkRol(['1'],['3']);
 ?>
 
 <!DOCTYPE html>
@@ -102,33 +102,34 @@ $pdo = dbConnect();
                         </div>
                     </div>
                 </a>
-
-
                 <?php
                 }
                 ?>
                 </div>
-
             </div>
         </div>
 
         <div class="gebruikersTab" id="pakketTab">
                 <div class="contentBoven"> 
                     <div class="heading">
-                        <h3>Gemaakte pakketten</h3>
+                        <h3>Pakketten</h3>
+                        <p style="margin-top: -15px;">Gemaakte en nog op te halen pakketten</p>
                     </div>
                 </div>
 
                 <div class="gebruikersRij">
                 <!-- Haalt gegevens uit de database op -->
                 <?php
-                $stmt = $pdo->query('SELECT * FROM pakket_has_product');
-                $pakketProducten = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $stmt = $pdo->query('
+                SELECT DISTINCT idpakket 
+                FROM pakket_has_product
+                ');
+                $pakketten = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                foreach ($pakketProducten as $pakketProduct){
+                foreach ($pakketten as $pakket) {
                 ?>
 
-                <a class="content" href="../views/pakket-gegevens.php?idpakket=<?=$pakketProduct['idpakket'] ?>">
+                <a class="content" href="../views/pakket-gegevens.php?idpakket=<?=$pakket['idpakket'] ?>">
                     <div class="item">
                         <div class="item-links">
                         <p>
@@ -147,8 +148,7 @@ $pdo = dbConnect();
                 </div>
             </div>
         </div>
-
-</div>
+        </div>
       </main>
   </section>
 </body>

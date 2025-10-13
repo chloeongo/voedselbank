@@ -1,6 +1,6 @@
 <?php
-include '../connection/connection.php';
-$pdo = dbConnect();
+include '../response/toegang.php';
+checkRol(['1'],['3']);
 ?>
 
 <!DOCTYPE html>

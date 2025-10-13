@@ -1,5 +1,6 @@
 <?php
-include '../response/bewerkGebruiker.php';
+include '../response/toegang.php';
+checkRol(['1']);
 ?>
 
 <!DOCTYPE html>
@@ -74,8 +75,14 @@ include '../response/bewerkGebruiker.php';
                     <div class="infoLine">
                         <div class="infoLinks">
                             <p style="font-weight: 600;">Rol:</p>
-                        <form method="POST">
-                            <input id="bewerkInput" type="text" name="rol" value="<?= htmlspecialchars($gebruiker['rol']) ?>">                        </div>
+                        <form action="../response/bewerkGebruiker.php" method="POST">
+                            <select id="rol" name="idrol" required>
+                                <option value="" disabled selected>Kies een rol</option>
+                                <option value="1" name="rol">Directie</option>
+                                <option value="2" name="rol">Magazijnmedewerker</option>
+                                <option value="3" name="rol">Vrijwilliger</option>
+                                <option value="4" name="rol">Inactief</option>
+                            </select>                         
                         <div class="bewerkBtn">
                             <button type="submit">Opslaan</button>
                         </div>

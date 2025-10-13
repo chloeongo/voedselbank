@@ -1,5 +1,6 @@
 <?php
-include '../response/bewerkProduct.php';
+include '../response/toegang.php';
+checkRol(['1'],['2']);
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +14,16 @@ include '../response/bewerkProduct.php';
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="bodyLayout">
+
+<?php
+    $idproduct = (int)$_GET['id']; 
+
+    $stmt = $pdo->prepare('SELECT * FROM product WHERE idproduct = :id');
+    $stmt->execute(['id' => $idproduct]);
+    $product = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
+
+
   <section>
       <header>
         <div id="headerImg">
@@ -44,7 +55,7 @@ include '../response/bewerkProduct.php';
             </div>
             <div class="navLink">
                 <img src="../styles/images/icon-pakket.png">
-                <a href="pakketten.php">Pakketten</a>
+                <a href="index.php">Pakketten</a>
             </div>
             <div class="navLink">
                 <img src="../styles/images/icon-klant.png">
@@ -69,7 +80,7 @@ include '../response/bewerkProduct.php';
           <div class="infoLine" id="bewerkProduct">
             <div class="infoLinks">
               <p style="font-weight: 600;">Naam:</p>
-            <form method="POST">
+            <form action="../response/bewerkProduct.php" method="POST">
                 <input id="bewerkInput" type="text" name="productnaam" value="<?= htmlspecialchars($product['productnaam']) ?>">                        </div>
               <div class="bewerkBtn">
                 <button type="submit">Opslaan</button>
@@ -79,7 +90,7 @@ include '../response/bewerkProduct.php';
           <div class="infoLine" id="bewerkProduct">
             <div class="infoLinks">
               <p style="font-weight: 600;">EAN:</p>
-            <form method="POST">
+            <form action="../response/bewerkProduct.php?id=<?=$product['idproduct'] ?>" method="POST">
                 <input id="bewerkInput" type="text" name="ean" value="<?= htmlspecialchars($product['ean']) ?>">                        </div>
               <div class="bewerkBtn">
                 <button type="submit">Opslaan</button>
@@ -89,7 +100,7 @@ include '../response/bewerkProduct.php';
           <div class="infoLine" id="bewerkProduct">
             <div class="infoLinks">
               <p style="font-weight: 600;">Aantal:</p>
-            <form method="POST">
+            <form action="../response/bewerkProduct.php" method="POST">
                 <input id="bewerkInput" type="text" name="aantal" value="<?= htmlspecialchars($product['aantal']) ?>">                        </div>
               <div class="bewerkBtn">
                 <button type="submit">Opslaan</button>
@@ -99,7 +110,7 @@ include '../response/bewerkProduct.php';
           <div class="infoLine" id="bewerkProduct">
             <div class="infoLinks">
               <p style="font-weight: 600;">Categorie:</p>
-            <form method="POST">
+            <form action="../response/bewerkProduct.php" method="POST">
                 <input id="bewerkInput" type="text" name="categorie" value="<?= htmlspecialchars($product['categorie']) ?>">                        </div>
               <div class="bewerkBtn">
                 <button type="submit">Opslaan</button>
