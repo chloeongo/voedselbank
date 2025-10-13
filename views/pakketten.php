@@ -22,7 +22,7 @@ checkRol(['1'],['3']);
 
         <div id="nav">
         <?php
-        $stmt = $pdo->query('SELECT gebruikersnaam, rol, idgebruiker FROM gebruiker');
+        $stmt = $pdo->query('SELECT idgebruiker FROM gebruiker');
         $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($gebruikers as $gebruiker)
@@ -132,7 +132,7 @@ checkRol(['1'],['3']);
                 foreach ($pakketten as $pakket) {
                 ?>
 
-                <a class="content" href="../views/pakket-gegevens.php?idpakket=<?=$pakket['idpakket'] ?>">
+                <a class="content" href="../views/pakket-gegevens.php?idpakket=<?=$pakket['idpakket']?>&idklant=<?=$klant['idklant'] ?>">
                     <div class="item">
                         <div class="item-links">
                         <p>

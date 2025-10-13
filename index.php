@@ -17,6 +17,12 @@ function checkRol($toegestaneRollen = []) {
     }
 }
 
+// Functie om te checken of een element getoond mag worden
+function toonElement($toegestaneRollen = []) {
+    if (!isset($_SESSION['idrol'])) return false;
+    return in_array($_SESSION['idrol'], $toegestaneRollen);
+}
+
 checkRol(['1'],['2'],['3']);
 ?>
 
@@ -52,29 +58,39 @@ checkRol(['1'],['2'],['3']);
                 <img src="./styles/images/icon-user.png">
                 <a href="/voedselbank/views/mijn-account.php?id=<?=$gebruiker['idgebruiker'] ?>">Mijn account</a>
             </div>
+<?php if (toonElement(['1'],['2'])): ?>
             <div class="navLink">
                 <img src="./styles/images/icon-leverancier.png">
                 <a href="/voedselbank/views/leveranciers.php">Leveranciers</a>
             </div>
+<?php endif; ?>
+<?php if (toonElement(['1'],['2'])): ?>
             <div class="navLink">
                 <img src="./styles/images/icon-voorraad.png">
                 <a href="/voedselbank/views/voorraad.php">Voorraad</a>
             </div>
+<?php endif; ?>
+<?php if (toonElement(['1'],['3'])): ?>
             <div class="navLink">
                 <img src="./styles/images/icon-pakket.png">
                 <a href="/voedselbank/views/pakketten.php">Pakketten</a>
             </div>
+<?php endif; ?>
+<?php if (toonElement(['1'],['2'])): ?>
             <div class="navLink">
                 <img src="./styles/images/icon-klant.png">
                 <a href="/voedselbank/views/klanten.php">Klanten</a>
             </div>
+<?php endif; ?>
+<?php if (toonElement(['1'])): ?>
             <div class="navLink">
                 <img src="./styles/images/icon-beheer.png">
                 <a href="/voedselbank/views/beheer.php">Beheren</a>
             </div>
-            <div>
-                <button class="blauwBtn">Log uit</button>
-            </div>
+<?php endif; ?>
+            <form method="POST" action="./response/loguit.php">
+                <button type="submit" name="logout" class="blauwBtn">Log uit</button>
+            </form>
         </div>
       </header>
      
@@ -82,6 +98,7 @@ checkRol(['1'],['2'],['3']);
             <h2 id="welkomH2">Welkom <?= htmlspecialchars($_SESSION['gebruikersnaam']) ?></h2>
 
         <div class="dashboard">
+<?php if (toonElement(['1'],['2'])): ?>
             <div class="card">
                 <h3><a href="#">Leveringen</a></h3>
             
@@ -115,8 +132,10 @@ checkRol(['1'],['2'],['3']);
                 }
                 ?>
                 <button class="blauwBtn" id="blauwBtnHome">Beheer leveranciers</button>
+<?php endif; ?>
             </div>
 
+<?php if (toonElement(['1'],['2'])): ?>
             <div class="card">
                 <h3><a href="#">Voorraad</a></h3>
                 
@@ -151,7 +170,9 @@ checkRol(['1'],['2'],['3']);
                 ?>
                 <button class="blauwBtn" id="blauwBtnHome">Beheer voorraad</button>
             </div>
+<?php endif; ?>
 
+<?php if (toonElement(['1'])): ?>
             <div class="card">
                 <h3><a href="#">Klanten</a></h3>
            
@@ -177,6 +198,7 @@ checkRol(['1'],['2'],['3']);
                 ?>
                 <button class="blauwBtn" id="blauwBtnHome">Beheer klanten</button>
             </div>
+<?php endif; ?>
         </div>
 
       </main>

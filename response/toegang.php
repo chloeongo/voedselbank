@@ -16,4 +16,10 @@ function checkRol($toegestaneRollen = []) {
         exit();
     }
 }
+
+// Functie om te checken of een element getoond mag worden
+function toonElement($toegestaneRollen = []) {
+    if (!isset($_SESSION['idrol'])) return false;
+    return in_array($_SESSION['idrol'], $toegestaneRollen);
+}
 ?>

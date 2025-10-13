@@ -35,29 +35,39 @@ checkRol(['1'],['3']);
                 <img src="../styles/images/icon-user.png">
                 <a href="mijn-account.php?id=<?=$gebruiker['idgebruiker'] ?>">Mijn account</a>
             </div>
+<?php if (toonElement(['1'],['2'])): ?>
             <div class="navLink">
                 <img src="../styles/images/icon-leverancier.png">
                 <a href="leveranciers.php">Leveranciers</a>
             </div>
+<?php endif; ?>
+<?php if (toonElement(['1'],['2'])): ?>
             <div class="navLink">
                 <img src="../styles/images/icon-voorraad.png">
                 <a href="voorraad.php">Voorraad</a>
             </div>
+<?php endif; ?>
+<?php if (toonElement(['1'],['3'])): ?>
             <div class="navLink active">
                 <img src="../styles/images/icon-pakket.png">
                 <a href="pakketten.php">Pakketten</a>
             </div>
+<?php endif; ?>
+<?php if (toonElement(['1'])): ?>
             <div class="navLink">
                 <img src="../styles/images/icon-klant.png">
                 <a href="klanten.php">Klanten</a>
             </div>
+<?php endif; ?>
+<?php if (toonElement(['1'])): ?>
             <div class="navLink">
                 <img src="../styles/images/icon-beheer.png">
                 <a href="beheer.php">Beheren</a>
             </div>
-            <div>
+<?php endif; ?>
+            <form action="../response/loguit.php" method="POST">
                 <button class="blauwBtn">Log uit</button>
-            </div>
+            </form>
         </div>
       </header>
 
@@ -69,7 +79,6 @@ checkRol(['1'],['3']);
     $stmt = $pdo->prepare('SELECT * FROM klant WHERE idklant = :idklant');
     $stmt->execute(['idklant' => $idklant]);
     $klant = $stmt->fetch(PDO::FETCH_ASSOC);
-
     ?>
 
       <h1>Pakketten</h1>
@@ -131,7 +140,8 @@ checkRol(['1'],['3']);
         ?>
 
     <form action="../response/addProductInPakket.php" method="POST" class="">
-      <input type="hidden" name="idpakket" value="<?= $pakket['idpakket']?>">
+      <input type="hidden" name="idklant" value="<?= htmlspecialchars($idklant) ?>">
+      <input type="hidden" name="idpakket" value="<?= htmlspecialchars($idpakket) ?>">
       <input type="hidden" name="idproduct" value="<?= $product['idproduct'] ?>">
       <div class="item">
       <p><strong><?= htmlspecialchars($product['productnaam']) ?></strong></p>

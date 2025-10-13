@@ -2,6 +2,8 @@
 include '../connection/connection.php';
 $pdo = dbConnect();
 
+$idklant = (int)$_POST['idklant'];
+
 if (isset($_POST['idpakket'], $_POST['idproduct'], $_POST['aantal'])) {
     $idpakket = (int)$_POST['idpakket'];
     $idproduct = (int)$_POST['idproduct'];
@@ -18,7 +20,7 @@ if (isset($_POST['idpakket'], $_POST['idproduct'], $_POST['aantal'])) {
         $update->execute(['aantal' => $nieuwAantal, 'idpakket' => $idpakket, 'idproduct' => $idproduct]);
     } else {
         // Voeg nieuw product toe
-        $insert = $pdo->prepare("INSERT INTO pakket_has_product (idpakket_product, idpakket, idproduct, aantal) VALUES (:idpakket, :idproduct, :aantal)");
+        $insert = $pdo->prepare("INSERT INTO pakket_has_product (idpakket, idproduct, aantal) VALUES (:idpakket, :idproduct, :aantal)");
         $insert->execute(['idpakket' => $idpakket, 'idproduct' => $idproduct, 'aantal' => $aantal]);
     }
 
@@ -28,7 +30,7 @@ if (isset($_POST['idpakket'], $_POST['idproduct'], $_POST['aantal'])) {
                                      WHERE idproduct = :idproduct");
     $updateVoorraad->execute(['aantal' => $aantal, 'idproduct' => $idproduct]);
 
-    header("Location: ../views/familie-pakket.php?id=$idpakket");
+    header("Location: ../views/familie-pakket.php?idpakket=$idpakket&idklant=$idklant");    
     exit();
 } else {
     echo "Ongeldige invoer.";
