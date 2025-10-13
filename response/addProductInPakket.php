@@ -8,6 +8,25 @@ if (isset($_POST['idpakket'], $_POST['idproduct'], $_POST['aantal'])) {
     $idpakket = (int)$_POST['idpakket'];
     $idproduct = (int)$_POST['idproduct'];
     $aantal = (int)$_POST['aantal'];
+
+    // haalt de huidige voorraad op
+    $stmt = $pdo->prepare("SELECT aantal FROM product WHERE idproduct = :idproduct");
+    $stmt->execute(['idproduct' => $idproduct]);
+    $product = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$product) {
+        die("Product niet gevonden.");
+    }
+
+    $voorraad = (int)$product['aantal'];
+
+    // kijkt of er genoeg in de voorraad is
+    if ($aantal > $voorraad) {
+        // te weinig voorraad > foutmelding of redirect met melding
+        echo "Er is niet genoeg voorraad om dit product toe te voegen";
+        exit();
+    }
+
     // kijkt of het product al in het pakket zit
     $check = $pdo->prepare("SELECT aantal FROM pakket_has_product WHERE idpakket = :idpakket AND idproduct = :idproduct");
     $check->execute(['idpakket' => $idpakket, 'idproduct' => $idproduct]);
