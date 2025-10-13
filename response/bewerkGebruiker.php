@@ -4,8 +4,8 @@ session_start();
 $pdo = dbConnect();
 
 
-if (isset($_GET['id'])) {
-    $idgebruiker = (int)$_GET['id']; 
+if (isset($_POST['id'])) {
+    $idgebruiker = (int)$_POST['id']; 
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['idrol'])) {
         $nieuweRol = $_POST['idrol'];
@@ -22,6 +22,9 @@ if (isset($_GET['id'])) {
         echo "Gebruiker niet gevonden.";
         exit;
     }
+
+    header("Location: ../views/succes.php");
+
 } else {
     echo "Geen gebruiker-ID opgegeven.";
     exit;

@@ -15,11 +15,16 @@ if (isset($_GET['id'])) {
         // hash het wachtwoord
         $hashedWW = password_hash($nieuweWW, PASSWORD_DEFAULT);
         $updateStmt->execute(['wachtwoord' => $hashedWW, 'id' => $idgebruiker]);
+
+            header("Location: ../views/succes.php");
+
     }
 
     $stmt = $pdo->prepare('SELECT * FROM gebruiker WHERE idgebruiker = :id');
     $stmt->execute(['id' => $idgebruiker]);
     $gebruiker = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    
 
     if (!$gebruiker) {
         echo "Gebruiker niet gevonden.";

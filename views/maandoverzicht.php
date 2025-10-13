@@ -19,45 +19,51 @@ $producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body class="bodyLayout">
   <section>
-    <header>
-      <div id="headerImg">
-        <img src="../styles/images/logo.png" alt="logo">
-      </div>
+      <header>
+        <div id="headerImg">
+            <img src="../styles/images/logo.png">
+        </div>
 
-      <div id="nav">
-        <div class="navLink">
-          <img src="../styles/images/icon-home.png" alt="">
-          <a href="../index.php">Home</a>
+        <div id="nav">
+                <?php
+                $stmt = $pdo->query('SELECT idgebruiker FROM gebruiker');
+                $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ($gebruikers as $gebruiker)
+                ?>
+            <div class="navLink">
+                <img src="../styles/images/icon-home.png">
+                <a href="../index.php">Home</a>
+            </div>
+            <div class="navLink">
+                <img src="../styles/images/icon-user.png">
+                <a href="mijn-account.php?id=<?=$gebruiker['idgebruiker'] ?>">Mijn account</a>
+            </div>
+            <div class="navLink active">
+                <img src="../styles/images/icon-leverancier.png">
+                <a href="leveranciers.php">Leveranciers</a>
+            </div>
+            <div class="navLink">
+                <img src="../styles/images/icon-voorraad.png">
+                <a href="voorraad.php">Voorraad</a>
+            </div>
+            <div class="navLink">
+                <img src="../styles/images/icon-pakket.png">
+                <a href="pakketten.php">Pakketten</a>
+            </div>
+            <div class="navLink">
+                <img src="../styles/images/icon-klant.png">
+                <a href="klanten.php">Klanten</a>
+            </div>
+            <div class="navLink">
+                <img src="../styles/images/icon-beheer.png">
+                <a href="beheer.php">Beheren</a>
+            </div>
+            <div>
+                <button class="blauwBtn">Log uit</button>
+            </div>
         </div>
-        <div class="navLink">
-          <img src="../styles/images/icon-user.png" alt="">
-          <a href="mijn-account.php">Mijn account</a>
-        </div>
-        <div class="navLink">
-          <img src="../styles/images/icon-leverancier.png" alt="">
-          <a href="leveranciers.php">Leveranciers</a>
-        </div>
-        <div class="navLink">
-          <img src="../styles/images/icon-voorraad.png" alt="">
-          <a href="voorraad.php">Voorraad</a>
-        </div>
-        <div class="navLink">
-          <img src="../styles/images/icon-pakket.png" alt="">
-          <a href="pakketten.php">Pakketten</a>
-        </div>
-        <div class="navLink active">
-          <img src="../styles/images/icon-klant.png" alt="">
-          <a href="klanten.php">Klanten</a>
-        </div>
-        <div class="navLink">
-          <img src="../styles/images/icon-beheer.png" alt="">
-          <a href="beheer.php">Beheren</a>
-        </div>
-        <div>
-          <button class="blauwBtn">Log uit</button>
-        </div>
-      </div>
-    </header>
+      </header>
 
     <!-- Hoofdinhoud -->
     <main class="mainContent">

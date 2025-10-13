@@ -11,6 +11,8 @@ if (isset($_GET['id'])) {
 
         $updateStmt = $pdo->prepare('UPDATE product SET productnaam = :productnaam WHERE idproduct = :id');
         $updateStmt->execute(['productnaam' => $nieuweNaam, 'id' => $idproduct]);
+   
+        header("Location: ../views/succes.php");
     }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ean'])) {
@@ -18,6 +20,8 @@ if (isset($_GET['id'])) {
 
         $updateStmt = $pdo->prepare('UPDATE product SET ean = :ean WHERE idproduct = :id');
         $updateStmt->execute(['ean' => $nieuweEan, 'id' => $idproduct]);
+
+        header("Location: ../views/succes.php");
     }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['aantal'])) {
@@ -25,6 +29,8 @@ if (isset($_GET['id'])) {
 
         $updateStmt = $pdo->prepare('UPDATE product SET aantal = :aantal WHERE idproduct = :id');
         $updateStmt->execute(['aantal' => $nieuweAantal, 'id' => $idproduct]);
+    
+        header("Location: ../views/succes.php");
     }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['categorie'])) {
@@ -32,6 +38,8 @@ if (isset($_GET['id'])) {
 
         $updateStmt = $pdo->prepare('UPDATE product SET categorie = :categorie WHERE idproduct = :id');
         $updateStmt->execute(['categorie' => $nieuweCategorie, 'id' => $idproduct]);
+
+        header("Location: ../views/succes.php");
     }
     
     $stmt = $pdo->prepare('SELECT * FROM product WHERE idproduct = :id');

@@ -32,7 +32,7 @@ checkRol(['1'],['2']);
 
         <div id="nav">
                 <?php
-                $stmt = $pdo->query('SELECT gebruikersnaam, rol, idgebruiker FROM gebruiker');
+                $stmt = $pdo->query('SELECT idgebruiker FROM gebruiker');
                 $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 foreach ($gebruikers as $gebruiker)
@@ -80,7 +80,7 @@ checkRol(['1'],['2']);
           <div class="infoLine" id="bewerkProduct">
             <div class="infoLinks">
               <p style="font-weight: 600;">Naam:</p>
-            <form action="../response/bewerkProduct.php" method="POST">
+            <form action="../response/bewerkProduct.php?id=<?=$product['idproduct']?>" method="POST">
                 <input id="bewerkInput" type="text" name="productnaam" value="<?= htmlspecialchars($product['productnaam']) ?>">                        </div>
               <div class="bewerkBtn">
                 <button type="submit">Opslaan</button>
@@ -100,7 +100,7 @@ checkRol(['1'],['2']);
           <div class="infoLine" id="bewerkProduct">
             <div class="infoLinks">
               <p style="font-weight: 600;">Aantal:</p>
-            <form action="../response/bewerkProduct.php" method="POST">
+            <form action="../response/bewerkProduct.php?id=<?=$product['idproduct']?>" method="POST">
                 <input id="bewerkInput" type="text" name="aantal" value="<?= htmlspecialchars($product['aantal']) ?>">                        </div>
               <div class="bewerkBtn">
                 <button type="submit">Opslaan</button>
@@ -110,7 +110,7 @@ checkRol(['1'],['2']);
           <div class="infoLine" id="bewerkProduct">
             <div class="infoLinks">
               <p style="font-weight: 600;">Categorie:</p>
-            <form action="../response/bewerkProduct.php" method="POST">
+            <form action="../response/bewerkProduct.php?id=<?=$product['idproduct']?>" method="POST">
                 <input id="bewerkInput" type="text" name="categorie" value="<?= htmlspecialchars($product['categorie']) ?>">                        </div>
               <div class="bewerkBtn">
                 <button type="submit">Opslaan</button>

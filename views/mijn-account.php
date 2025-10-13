@@ -22,7 +22,7 @@ include '../response/bewerkWachtwoord.php';
 
       <div id="nav">
                 <?php
-                $stmt = $pdo->query('SELECT gebruikersnaam, rol, idgebruiker FROM gebruiker');
+                $stmt = $pdo->query('SELECT idgebruiker FROM gebruiker');
                 $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 foreach ($gebruikers as $gebruiker)
@@ -57,8 +57,6 @@ include '../response/bewerkWachtwoord.php';
         </div>
         <button class="blauwBtn">Log uit</button>
        </div>
-
-
     </header>
 
     <main class="accountMain">
@@ -67,7 +65,15 @@ include '../response/bewerkWachtwoord.php';
 
             <!-- Haalt gegevens uit de database op -->
                 <?php
-                $stmt = $pdo->query('SELECT * FROM gebruiker');
+                $stmt = $pdo->query('SELECT 
+                                    gebruiker.gebruikersnaam, 
+                                    gebruiker.idrol, 
+                                    gebruiker.idgebruiker,
+                                    rol.rolnaam 
+                                FROM gebruiker
+                                INNER JOIN rol
+                                ON rol.idrol = gebruiker.idrol');
+
                 $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 foreach ($gebruikers as $gebruiker)
@@ -80,7 +86,7 @@ include '../response/bewerkWachtwoord.php';
         </p>
         <p class="account-p">
           <strong>Rol:</strong>
-          <?= htmlspecialchars($gebruiker['rol']) ?>
+          <?= htmlspecialchars($gebruiker['rolnaam']) ?>
         </p>
         <div class="wachtwoordBewerken" id="wachtwoordBewerken">
         <p>

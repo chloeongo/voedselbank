@@ -76,6 +76,7 @@ checkRol(['1']);
                         <div class="infoLinks">
                             <p style="font-weight: 600;">Rol:</p>
                         <form action="../response/bewerkGebruiker.php" method="POST">
+                            <input type="hidden" name="id" value="<?= $gebruiker['idgebruiker'] ?>">
                             <select id="rol" name="idrol" required>
                                 <option value="" disabled selected>Kies een rol</option>
                                 <option value="1" name="rol">Directie</option>

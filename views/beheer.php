@@ -22,7 +22,7 @@ checkRol(['1']);
 
         <div id="nav">
                 <?php
-                $stmt = $pdo->query('SELECT gebruikersnaam, rol, idgebruiker FROM gebruiker');
+                $stmt = $pdo->query('SELECT idgebruiker FROM gebruiker');
                 $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 foreach ($gebruikers as $gebruiker)
@@ -85,7 +85,15 @@ checkRol(['1']);
                 <div class="gebruikersRij">
                 <!-- Haalt gegevens uit de database op -->
                 <?php
-                $stmt = $pdo->query('SELECT gebruikersnaam, rol, idgebruiker FROM gebruiker');
+                $stmt = $pdo->query('SELECT 
+                                    gebruiker.gebruikersnaam, 
+                                    gebruiker.idrol, 
+                                    gebruiker.idgebruiker,
+                                    rol.rolnaam 
+                                FROM gebruiker
+                                INNER JOIN rol
+                                ON rol.idrol = gebruiker.idrol');
+
                 $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 foreach ($gebruikers as $gebruiker){
@@ -98,7 +106,7 @@ checkRol(['1']);
                             <?= htmlspecialchars($gebruiker['gebruikersnaam']) ?>
                         </p>
                         <p class="smallertext">
-                            <?= htmlspecialchars($gebruiker['rol']) ?>
+                            <?= htmlspecialchars($gebruiker['rolnaam']) ?>
                         </p>
                         </div>
                         <div class="bewerkBtn">
@@ -107,13 +115,10 @@ checkRol(['1']);
                         </div>
                     </div>
                 </a>
-
-
                 <?php
                 }
                 ?>
                 </div>
-
             </div>
 
             <div class="beheerRechts">
@@ -127,7 +132,6 @@ checkRol(['1']);
                             </a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

@@ -21,12 +21,12 @@ checkRol(['1'],['3']);
         </div>
 
         <div id="nav">
-                <?php
-                $stmt = $pdo->query('SELECT gebruikersnaam, rol, idgebruiker FROM gebruiker');
-                $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        <?php
+        $stmt = $pdo->query('SELECT gebruikersnaam, rol, idgebruiker FROM gebruiker');
+        $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                foreach ($gebruikers as $gebruiker)
-                ?>
+        foreach ($gebruikers as $gebruiker)
+        ?>
             <div class="navLink">
                 <img src="../styles/images/icon-home.png">
                 <a href="../index.php">Home</a>
@@ -66,7 +66,6 @@ checkRol(['1'],['3']);
 
 <div class="mainPakket">
         <div class="mainContent">
-            
         <div class="gebruikersTab" id="familieTab">
                 <div class="contentBoven">
                     <div class="heading">
@@ -75,7 +74,7 @@ checkRol(['1'],['3']);
                     <div class="searchbar">
                         <form>
                         <input type="text" id="searchbar" name="searchbar">
-                    <input type="submit" value="🔍" class="searchBtn">
+                        <input type="submit" value="🔍" class="searchBtn">
                         </form>
                     </div>
                 </div>
@@ -89,7 +88,7 @@ checkRol(['1'],['3']);
                 foreach ($klanten as $klant){
                 ?>
 
-                <a class="content" href="../response/addPakket.php?id=<?=$klant['idklant'] ?>">
+                <form class="content" method="POST" action="../response/addPakket.php">
                     <div class="item">
                         <div class="item-links">
                         <p>
@@ -97,11 +96,15 @@ checkRol(['1'],['3']);
                         </p>
                         </div>
                         <div class="bewerkBtn">
-                            <button>Pakket toewijzen</button>
+                        <input type="hidden" name="id" value="<?= $klant['idklant'] ?>">
+                            <button type="submit">
+                                Pakket toewijzen
+                            </button>
                             <img src="../styles/images/arrow.png">
                         </div>
                     </div>
-                </a>
+                </form>
+                
                 <?php
                 }
                 ?>

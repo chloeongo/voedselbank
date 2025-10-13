@@ -55,7 +55,7 @@
   <div class="container">
     <h1>404</h1>
     <p>Sorry, deze pagina bestaat niet.</p>
-    <a href="index.php">Terug naar Home</a>
+    <a href="../index.php">Terug naar Home</a>
   </div>
 </body>
 </html>

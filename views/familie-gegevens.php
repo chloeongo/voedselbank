@@ -27,7 +27,7 @@ foreach ($klanten as $klant)
 
         <div id="nav">
                 <?php
-                $stmt = $pdo->query('SELECT gebruikersnaam, rol, idgebruiker FROM gebruiker');
+                $stmt = $pdo->query('SELECT idgebruiker FROM gebruiker');
                 $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 foreach ($gebruikers as $gebruiker)

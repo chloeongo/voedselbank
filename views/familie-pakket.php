@@ -21,13 +21,19 @@ checkRol(['1'],['3']);
         </div>
 
         <div id="nav">
+        <?php
+        $stmt = $pdo->query('SELECT idgebruiker FROM gebruiker');
+        $gebruikers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($gebruikers as $gebruiker)
+        ?>
             <div class="navLink">
                 <img src="../styles/images/icon-home.png">
                 <a href="../index.php">Home</a>
             </div>
             <div class="navLink">
                 <img src="../styles/images/icon-user.png">
-                <a href="mijn-account.php">Mijn account</a>
+                <a href="mijn-account.php?id=<?=$gebruiker['idgebruiker'] ?>">Mijn account</a>
             </div>
             <div class="navLink">
                 <img src="../styles/images/icon-leverancier.png">
@@ -58,15 +64,12 @@ checkRol(['1'],['3']);
     <main class="content">
 
     <?php
-    $stmt = $pdo->query('SELECT * FROM klant');
-    $klanten = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $idklant = (int)$_GET['idklant'];
 
-    foreach ($klanten as $klant)
-    
-    $stmt = $pdo->query('SELECT * FROM pakket');
-    $pakketten = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt = $pdo->prepare('SELECT * FROM klant WHERE idklant = :idklant');
+    $stmt->execute(['idklant' => $idklant]);
+    $klant = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    foreach ($pakketten as $pakket)
     ?>
 
       <h1>Pakketten</h1>
@@ -84,7 +87,7 @@ checkRol(['1'],['3']);
         <h2>Pakket van <?= htmlspecialchars($klant['naam']) ?></h2>
 
         <?php
-        $idpakket = $_GET['id'];
+        $idpakket = $_GET['idpakket'];
 
         $stmt = $pdo->prepare('
         SELECT 
@@ -119,8 +122,6 @@ checkRol(['1'],['3']);
         <div class="card producten">
           <div class="card-header">
             <h2>Producten</h2>
-            <input type="text" placeholder=" " class="searchbar">
-            <img src="./styles/images/icon-search.png" alt="zoek" class="searchicon">
           </div>
         <?php
         $stmt = $pdo->query('SELECT * FROM product');

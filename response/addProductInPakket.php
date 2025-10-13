@@ -18,7 +18,7 @@ if (isset($_POST['idpakket'], $_POST['idproduct'], $_POST['aantal'])) {
         $update->execute(['aantal' => $nieuwAantal, 'idpakket' => $idpakket, 'idproduct' => $idproduct]);
     } else {
         // Voeg nieuw product toe
-        $insert = $pdo->prepare("INSERT INTO pakket_has_product (idpakket, idproduct, aantal) VALUES (:idpakket, :idproduct, :aantal)");
+        $insert = $pdo->prepare("INSERT INTO pakket_has_product (idpakket_product, idpakket, idproduct, aantal) VALUES (:idpakket, :idproduct, :aantal)");
         $insert->execute(['idpakket' => $idpakket, 'idproduct' => $idproduct, 'aantal' => $aantal]);
     }
 

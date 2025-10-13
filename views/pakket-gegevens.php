@@ -70,8 +70,8 @@ checkRol(['1'],['3']);
 
         foreach ($klanten as $klant)
         ?>
-        <h2>Pakket van <?= htmlspecialchars($klant['naam']) ?></h2>
 
+        <h2>Pakket van <?= htmlspecialchars($klant['naam']) ?></h2>
         <div class="pakketGegevens">
 
         <?php
