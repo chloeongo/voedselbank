@@ -10,7 +10,7 @@ checkRol(['1'],['3']);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pakket gegevens - Voedselbank Maaskantje</title>
   <link rel="icon" type="image/x-icon" href="../styles/images/logo.png">
-  <link rel="stylesheet" href="../styles/pakket-gegevens.css">
+  <link rel="stylesheet" href="../styles/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="bodyLayout">
@@ -65,8 +65,8 @@ checkRol(['1'],['3']);
         </div>
       </header>
 
-    <main class="mainContent">
-      <div class="card">
+    <main class="mainContentPGegevens">
+      <div class="cardPGegevens">
 
         <?php
 

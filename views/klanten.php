@@ -11,7 +11,7 @@ checkRol(['1']);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Klanten - Voedselbank Maaskantje</title>
   <link rel="icon" type="image/x-icon" href="../styles/images/logo.png">
-  <link rel="stylesheet" href="../styles/klanten.css">
+  <link rel="stylesheet" href="../styles/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="bodyLayout">
@@ -67,12 +67,11 @@ checkRol(['1']);
       </header>
 
 
-    <main class="mainContent">
+    <main class="mainContentKlanten">
       <div class="content-wrapper">
         <div class="header-bar">
           <h1>Klanten</h1>
           <div class="header-actions">
-            <input type="text" placeholder="Zoek familie..." class="zoekbar">
             <a href="familie-form.php">
             <button class="blauwBtn">Voeg nieuwe klant toe</button>
             </a>
@@ -88,8 +87,8 @@ checkRol(['1']);
                 foreach ($klanten as $klant){
                 ?>
 
-                <a class="familie-item" href="familie-gegevens.php?id=<?=$klant['idklant'] ?>">
-                    <div class="familie-info">
+                <a class="klanten-item" href="familie-gegevens.php?id=<?=$klant['idklant'] ?>">
+                    <div class="klanten-info">
                         <div>
                         <h3>
                             <?= htmlspecialchars($klant['naam']) ?>
@@ -101,12 +100,9 @@ checkRol(['1']);
                         <img src="../styles/images/arrow.png">
                     </div>
                 </a>
-
-
                 <?php
                 }
                 ?>
-
         </div>
       </div>
     </main>

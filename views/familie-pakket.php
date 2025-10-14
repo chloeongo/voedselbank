@@ -10,7 +10,7 @@ checkRol(['1'],['3']);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pakketten - Voedselbank Maaskantje</title>
   <link rel="icon" type="image/x-icon" href="../styles/images/logo.png">
-  <link rel="stylesheet" href="../styles/familie-pakket.css">
+  <link rel="stylesheet" href="../styles/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="bodyLayout">
@@ -65,7 +65,7 @@ checkRol(['1'],['3']);
         </div>
       </header>
 
-    <main class="content">
+    <main class="contentFPakket">
 
     <?php
     $idklant = (int)$_GET['idklant'];
@@ -77,16 +77,16 @@ checkRol(['1'],['3']);
 
       <h1>Pakketten</h1>
 
-      <div class="pakket-grid">
-        <div class="card familie-info">
+      <div class="pakket-gridFP">
+        <div class="card familie-infoFP">
           <h2>Familie <?= htmlspecialchars($klant['naam']) ?></h2>
-          <div class="card-body">
+          <div class="cardFP-body">
             <p><strong>Familie: </strong><?= htmlspecialchars($klant['naam']) ?></p>
             <p><strong>Allergieën: </strong><?= htmlspecialchars($klant['uitzondering']) ?></p>
           </div>
         </div>
 
-        <div class="card familie-pakket">
+        <div class="cardFP familie-pakketFP">
         <h2>Pakket van <?= htmlspecialchars($klant['naam']) ?></h2>
 
         <?php
@@ -111,7 +111,7 @@ checkRol(['1'],['3']);
 
         foreach ($pakketProducten as $pakketProduct){
         ?>
-          <div class="card-body">
+          <div class="cardFP-body">
             <p>
               <?= htmlspecialchars($pakketProduct['productnaam']) ?>
              - <?= htmlspecialchars($pakketProduct['in_pakket']) ?>
@@ -122,8 +122,8 @@ checkRol(['1'],['3']);
         ?>
         </div>
 
-        <div class="card producten">
-          <div class="card-header">
+        <div class="cardFP productenFP">
+          <div class="cardFP-header">
             <h2>Producten</h2>
           </div>
         <?php
@@ -137,7 +137,7 @@ checkRol(['1'],['3']);
       <input type="hidden" name="idklant" value="<?= htmlspecialchars($idklant) ?>">
       <input type="hidden" name="idpakket" value="<?= htmlspecialchars($idpakket) ?>">
       <input type="hidden" name="idproduct" value="<?= $product['idproduct'] ?>">
-      <div class="item">
+      <div class="itemFP">
       <p><strong><?= htmlspecialchars($product['productnaam']) ?></strong></p>
 
                 <div class="smallertext" id="eanCategorie">

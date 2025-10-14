@@ -13,7 +13,7 @@ $producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Maandoverzicht - Voedselbank Maaskantje</title>
   <link rel="icon" type="image/x-icon" href="../styles/images/logo.png">
-  <link rel="stylesheet" href="../styles/maandoverzicht.css">
+  <link rel="stylesheet" href="../styles/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  <!-- Chart script voor de grafiek -->
 </head>
@@ -70,14 +70,14 @@ $producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
       </header>
 
     <!-- Hoofdinhoud -->
-    <main class="mainContent">
-      <div class="content-wrapper">
+    <main class="mainContentOverzicht">
+      <div class="content-wrapper-overzicht">
         <div class="top-bar">
-          <h1>Maandoverzicht</h1>
+          <h1 class="h1">Maandoverzicht</h1>
           <a href="../index.php" class="terugKnop">← Ga terug</a>
         </div>
 
-        <p class="subtitle">Hieronder vind je het overzicht van de productaantallen per maand.</p>
+        <p class="subtitle">Hieronder vind je het overzicht van de productaantallen.</p>
 
         <div class="chart-container">
           <canvas id="productChart"></canvas>

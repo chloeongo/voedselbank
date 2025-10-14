@@ -1,5 +1,6 @@
 <?php
 include '../response/toegang.php';
+checkRol(['1'],['2'],['3'],['4']);
 ?>
 
 <!DOCTYPE html>

@@ -66,6 +66,17 @@ checkRol(['1']);
       </header>
      
       <main>
+
+<?php
+    $idgebruiker = $_SESSION['idgebruiker'];
+
+    $stmt = $pdo->prepare('SELECT * FROM gebruiker
+                           WHERE idgebruiker = :idgebruiker
+                         ');
+    $stmt->execute(['idgebruiker' => $idgebruiker]);
+    $gebruiker = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
+
         <div class="gegevensForm">
             <div class="form">
                 <h3>Bewerk <?= htmlspecialchars($gebruiker['gebruikersnaam']) ?></h3>
