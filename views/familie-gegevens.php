@@ -2,10 +2,11 @@
 include '../response/toegang.php';
 checkRol(['1']);
 
-$stmt = $pdo->query('SELECT * FROM klant');
-$klanten = $stmt->fetchAll(PDO::FETCH_ASSOC);
-foreach ($klanten as $klant)
+$idklant = (int)$_GET['id'];
 
+$stmt = $pdo->prepare('SELECT * FROM klant WHERE idklant = :id');
+$stmt->execute(['id' => $idklant]);
+$klant = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
